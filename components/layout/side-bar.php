@@ -1,0 +1,46 @@
+<!-- Sidebar wrapper start -->
+<nav id="sidebar" class="sidebar-wrapper">
+    <!-- Sidebar brand start  -->
+    <div class="sidebar-brand">
+        <a href="../../services/home/" class="logo" style="margin-left:-5px">
+            <img src="../../img/../img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>"
+                alt="">
+            &nbsp;&nbsp;<h2 class="mt-2 text-white">S<span style="color:yellow">PA</span></h2>
+        </a>
+    </div>
+    <!-- Sidebar brand end  -->
+
+    <!-- Sidebar content start -->
+    <div class="sidebar-content">
+
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu">
+            <ul>
+                <li class="home">
+                    <a href="../../services/home/">
+                        <i class="icon-home"></i>
+                        <span class="menu-text">ໜ້າຫຼັກ</span>
+                    </a>
+                </li>
+                <li class="sidebar-dropdown">
+                    <a href="#">
+                        <i class="fa fa-<?php echo $res['menu_icon']?>"></i>
+                        <span class="menu-text">...</span>
+                    </a>
+                    <div class="sidebar-submenu">
+                        <ul>
+                            <li>
+                                <a href="#">...</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- sidebar menu end -->
+
+    </div>
+    <!-- Sidebar content end -->
+
+</nav>
+<!-- Sidebar wrapper end -->
