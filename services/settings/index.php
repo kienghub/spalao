@@ -65,10 +65,34 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12" id="sublist">
+                        <a href="../rate/">
+                            <div class="info-stats4">
+                                <div class="info-icon">
+                                    <i class="fa fa-usd"></i>
+                                </div>
+                                <div class="sale-num">
+                                    <h4>ຈັດການອັດຕາແລກປ່ຽນ</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12" id="sublist">
+                        <a href="../members/">
+                            <div class="info-stats4">
+                                <div class="info-icon">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                                <div class="sale-num">
+                                    <h4>ຈັດການສະມາຊິກ</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12" id="sublist">
                         <a href="../users/">
                             <div class="info-stats4">
                                 <div class="info-icon">
-                                    <i class="icon-users"></i>
+                                    <i class="icon-user"></i>
                                 </div>
                                 <div class="sale-num">
                                     <h4>ຈັດການຜູ້ໃຊ້ລະບົບ</h4>

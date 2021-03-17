@@ -83,7 +83,7 @@
                                         </div>
 
                                         <span class="input-group-btn">
-                                            <button type="button" onclick="_onDelete(<?php echo $_GET['id'] ?>)"
+                                            <button type="button" onclick="_onDelete('<?php echo $_GET['id'] ?>')"
                                                 class="btn btn-outline-danger btn-block"><i class="icon-trash"></i>
                                                 ລຶບບັນຊີ</button>
                                         </span>

@@ -39,6 +39,13 @@
         <script src="../../assets/js/main.js"></script>
         <script src="../../assets/js/app.js"></script>
         <script src="../../assets/js/onload_file.js"></script>
+        <script src="../../assets/select2/dist/js/select2.full.min.js"></script>
         <script src="../../assets/js/printThis.js"></script>
         <script src="../../assets/angularjs.1.4.0/angular.min.js"></script>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+        <script>
+$(document).ready(function() {
+    $('.select2').select2();
+});
+        </script>

@@ -9,6 +9,26 @@
             <i class="icon-list"></i>
         </a>
     </div>
+    <?php 
+        // GET RATE
+        $selectRate ="SELECT * FROM spa_rate ORDER BY rate_id DESC LIMIT 1";
+        $resultRate =$DB_con->prepare($selectRate);
+        $resultRate->execute();
+        $_row=$resultRate->fetch();
+        // CHECK STOCK
+        $selectRate ="SELECT * FROM spa_rate ORDER BY rate_id DESC LIMIT 1";
+        ?>
+    <div class="header-items" <?php echo @$_isHide ?>>
+        <strong style="color:coral"> ອັດຕາແລກປ່ຽນວັນນີ້ </strong>
+    </div>
+    <div class="header-items" <?php echo @$_isHide ?>>
+        <a href="../../services/rate/"><strong style="color:coral"> ບາດ(THB):
+                <?php echo @number_format($_row['rate_THB'])?> </strong></a>
+    </div>
+    <div class="header-items" <?php echo @$_isHide ?>>
+        <a href="../../services/rate/"><strong style="color:coral"> ໂດລາ(USD):
+                <?php echo @number_format($_row['rate_USD'])?></strong> </a>
+    </div>
     <div class="header-items">
         <!-- Custom search start -->
         <div class="custom-search">
@@ -21,7 +41,7 @@
         <ul class="header-actions">
             <li class="dropdown">
                 <a href="../../services/settings/" class="settings" id="notifications">
-                <i class="fa fa-th-large"></i>
+                    <i class="fa fa-th-large"></i>
                 </a>
             </li>
             <li class="dropdown">
@@ -49,7 +69,7 @@
                         <li>
                             <a href="#">
                                 <div class="user-img busy">
-                                   <img src="../../img/user_null.png" alt="">
+                                    <img src="../../img/user_null.png" alt="">
                                 </div>
                                 <div class="details">
                                     <div class="user-title">Braxten</div>
@@ -61,7 +81,7 @@
                         <li>
                             <a href="#">
                                 <div class="user-img online">
-                                  <img src="../../img/user_null.png" alt="">
+                                    <img src="../../img/user_null.png" alt="">
                                 </div>
                                 <div class="details">
                                     <div class="user-title">Larkyn</div>
@@ -74,8 +94,7 @@
                 </div>
             </li>
             <li class="dropdown">
-                <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown"
-                    aria-haspopup="true">
+                <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
                     <span class="user-name"><?php echo $_USER_FNAME ?></span>
                     <span class="avatar">
                         <img src="../../img/<?php if($_USER_IMG){echo $_USER_IMG;}else{echo 'user_null.png';}?>" alt="">
@@ -86,14 +105,17 @@
                     <div class="header-profile-actions">
                         <div class="header-user-profile">
                             <div class="header-user">
-                                <img src="../../img/<?php if($_USER_IMG){echo $_USER_IMG;}else{echo 'user_null.png';}?>" alt="user">
+                                <img src="../../img/<?php if($_USER_IMG){echo $_USER_IMG;}else{echo 'user_null.png';}?>"
+                                    alt="user">
                             </div>
                             <h5><?php echo $_USER_FNAME ?></h5>
                             <p><?php echo $_USER_ROLE?></p>
                         </div>
-                        <a href="../../services/users/user-profile.php?id=<?php echo $_USER_ID?>"><i class="icon-user1"></i> ໂປຣໄຟລ໌</a>
+                        <a href="../../services/users/user-profile.php?id=<?php echo $_USER_ID?>"><i
+                                class="icon-user1"></i> ໂປຣໄຟລ໌</a>
                         <a href="../../services/change_password/"><i class="fa fa-key"></i> ປ່ຽນລະຫັດຜ່ານ</a>
-                        <a href="../../services/loginhistory/?years=<?php echo $_YEAR ?>"><i class="fa fa-history"></i> ປະຫວັດການເຂົ້າລະບົບ</a>
+                        <a href="../../services/loginhistory/?years=<?php echo $_YEAR ?>"><i class="fa fa-history"></i>
+                            ປະຫວັດການເຂົ້າລະບົບ</a>
                         <a href="../../services/profilesystem/"><i class="fa fa-cog"></i> ຂໍ້ມູນສຳນັກງານ</a>
                         <a href="#" onclick="_logout()"><i class="icon-log-out1"></i> ອອກຈາກລະບົບ</a>
                     </div>

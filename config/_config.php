@@ -1,7 +1,7 @@
 <?php function _active($class){?>
 <style>
 <?php echo $class ?> {
-    background-color: #fafafafa;
+    background-color: #f1f1f1f1;
     border-left: 5px solid #485167;
 }
 

@@ -70,7 +70,7 @@
                                         <?php _limit()?>
                                     </div>
                                     <div class="table-responsive">
-                                        <table id="copy-print-csv" class="table custom-table table-sm">
+                                        <table id="main" class="table custom-table table-sm">
                                             <tr>
                                                 <th class="text-center" width='90'>#</th>
                                                 <th class="text-center">ຊື່ຜູ້ເຂົ້າລະບົບ</th>
