@@ -19,7 +19,7 @@
             <div class="page-header">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການລະບົບ</li>
-                    <li class="breadcrumb-item" onclick="window.location='./'"> ຂໍ້ມູນຜູ້ໃຊ້ລະບົບ</li>
+                    <li class="breadcrumb-item" onclick="window.location='./index.php'"> ຂໍ້ມູນຜູ້ໃຊ້ລະບົບ</li>
                     <li class="breadcrumb-item active">ເພີ່ມຂໍ້ມູນຜູ້ໃຊ້</li>
                 </ol>
 
@@ -78,8 +78,8 @@
                                         <label for="">ເພດ <?php isVal()?></label>
                                         <div class="m-2">
                                             <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="user_gender" name="user_gender"
-                                                    class="custom-control-input" value="MALE" required>
+                                                <input type="radio" id="user_gender" name="user_gender" value="MALE"
+                                                    class="custom-control-input" required>
                                                 <label class="custom-control-label" for="user_gender"
                                                     value="MALE">ຊາຍ</label>
                                             </div>
@@ -118,6 +118,19 @@
                                             <option value="ADMIN">ADMIN</option>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="">ສາຂາ <?php isVal()?></label>
+                                        <select class="form-control" name="branch" id="branch" required>
+                                            <option value="">-- ເລືອກ --</option>
+                                            <?php 
+                                            $_queryBranch=$_SQL($con,"SELECT * FROM spa_branch");
+                                            foreach($_queryBranch as $key){
+                                        ?>
+                                            <option value="<?php echo $key['branch_id']?>">
+                                                <?php echo $key['branch_name_l']?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                     <button type="submit" name="_handleSubmit" class="btn btn-outline-primary"><i
                                             class="icon-check-circle"></i> ບັນທຶກ</button>
                                     <button type="button" class="btn btn-outline-danger"><i class="icon-close"></i>
@@ -148,8 +161,9 @@ if(isset($_POST['_handleSubmit'])){
     $user_address=$_SETSTRING($con,$_POST['user_address']);
     $user_tel=$_SETSTRING($con,$_POST['user_tel']);
     $user_name=$_SETSTRING($con,$_POST['user_name']);
-    echo $user_password=md5($con,$_POST['user_password']);
+    $user_password=md5($con,$_POST['user_password']);
     $user_role=$_SETSTRING($con,$_POST['user_role']);
+    $branch=$_SETSTRING($con,$_POST['branch']);
 
     @$file_img    = $_FILES['user_img']['name'];
     @$tmp_dir    = $_FILES['user_img']['tmp_name'];
@@ -159,18 +173,7 @@ if(isset($_POST['_handleSubmit'])){
     if ($file_img == "") {$img = '';} else {
         @$img = rand(100000, 1000000).".".$fileExt;
     }
-
-    $_uniqeData=$_SQL($con,"SELECT*FROM spa_users WHERE user_name='$user_name' AND user_password='$user_password'");
-    $_catch=$_COUNT($_uniqeData);
-    if($_catch>0){
-        echo "<script>
-        Notiflix.Notify.Failure('ການດຳເນີນງານບໍ່ສຳເລັດ ຂໍ້ມູນນີ້ມີຜູ້ໃຊ້ແລ້ວ');
-         setTimeout(() => {
-                  window.location='../users/add-user.php'
-                }, 2000);
-        </script>"; 
-    }else{
-    $_DATA="'$_AUTO_ID','$user_fname','$user_lname','$user_gender','$user_address','$user_tel','$user_name','$user_password','$user_role','true','$img','$_TIMESTAM','$_USER_ID'";
+    $_DATA="'$_AUTO_ID','$user_fname','$user_lname','$user_gender','$user_address','$user_tel','$user_name','$user_password','$user_role','true','$img','$_DATE','$_USER_NAME','$branch'";
     $_createUser=$_SQL($con,"INSERT INTO spa_users VALUES($_DATA)");
     if($_createUser){
         @move_uploaded_file($tmp_dir, $upload_dir.$img);
@@ -187,7 +190,6 @@ if(isset($_POST['_handleSubmit'])){
                   window.location='../users/add-user.php'
                 }, 2000);
         </script>";}
-}
 }
 ?>
 </body>

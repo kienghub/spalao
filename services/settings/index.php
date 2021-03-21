@@ -41,6 +41,18 @@
             <div class="main-container" id="main">
                 <div class="row gutters">
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12" id="sublist">
+                        <a href="../branch/">
+                            <div class="info-stats4">
+                                <div class="info-icon">
+                                    <i class="icon-call_split"></i>
+                                </div>
+                                <div class="sale-num">
+                                    <h4>ຈັດການສາຂາ</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12" id="sublist">
                         <a href="../category/">
                             <div class="info-stats4">
                                 <div class="info-icon">

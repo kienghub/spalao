@@ -31,7 +31,7 @@
 </head>
 <?php _active('.sale') ?>
 
-<body ng-app="app" ng-controller="controller" ng-init="_callCategory()">
+<body ng-app="app" ng-controller="controller" ng-init="_callProduct();_callCategory();cate_id=''">
     <!-- Page wrapper start -->
     <div class="page-wrapper pinned">
         <?php include('../../components/layout/side-bar.php') ?>
@@ -40,7 +40,7 @@
             <?php include_once('../../components/layout/heading.php') ?>
             <div class="page-header">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item">ລວມໂຕະ</li>
+                    <li class="breadcrumb-item">ໜ້າຂາຍ</li>
                     <li class="breadcrumb-item active">ລາຍລະອຽດ</li>
                 </ol>
 
@@ -65,54 +65,47 @@
                         <form action="#" method="POST">
                             <!-- Row start -->
                             <div class="row no-gutters">
-                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                                    <div class="docs-type-container  text-center">
-                                        <input type="hidden" id="tb_id" value="<?php echo $_GET['id'] ?>">
-                                        <h4>ໝວດບໍລິການ</h4>
-                                        <div class="docTypeContainerScroll">
-                                            <div class="docs-block  p-2">
-                                                <input type="text" id="searchCategory" class='form-control m-1'
-                                                    placeholder="ຄົ້ນຫາ..">
-                                                <div class="doc-labels">
-                                                    <a href="#" class="active">
-                                                        <i class="icon-receipt"></i> ທັງໝົດ
-                                                    </a>
-                                                    <a href="#" ng-repeat="i in _callcate">
-                                                        <i class="icon-receipt"></i> <span
-                                                            ng-bind='i.cate_title'></span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                <div class="col-8">
+                                    <div class="labels-container p-3">
+                                        <div id="elem">
+                                            <label class="list-menu" ng-click='_onSelected()'
+                                                class="{{cate_id==null ?'active':''}}">
+                                                <a href="#"> <strong> ທັງໝົດ</strong></a>
+                                            </label>
+                                            <label ng-repeat="i in _callcate" class="list-menu"
+                                                ng-click='_onSelected(i.cate_id)'
+                                                class="{{cate_id==i.cate_id ? 'active':''}}">
+                                                <a href="#"> <strong ng-bind='i.cate_title'></strong></a>
+                                            </label>
                                         </div>
 
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="labels-container p-3">
                                         <div class="lablesContainerScroll p-2">
                                             <center>
                                                 <h4>ລາຍການຄອສ໌</span>
                                             </center>
                                             <div class="filters-block">
-                                                <table class="table table-hover table-sm">
+                                                <table class="table table-hover table-sm" id="main">
                                                     <tr>
                                                         <th>#</th>
                                                         <th>ລາຍການ</th>
                                                         <th class="text-center">ຈຳນວນ</th>
-                                                        <th class="text-right">ລາຄາ</th>
-                                                        <th class="text-right">ເປັນເງິນ</th>
+                                                        <th class="text-center">ລາຄາ/ຄັ້ງ</th>
+                                                        <th class="text-center">ລາຄາ/ຄອສ໌</th>
                                                         <th></th>
                                                     </tr>
-                                                    <tr ng-repeat="i in _callOrder">
+                                                    <tr id="sublist"
+                                                        ng-repeat="i in _callproduct | filter:{pro_cate_id:cate_id}">
                                                         <td style="width:20px" ng-bind='$index+1'></td>
-                                                        <td class="wrap-text" ng-bind='i.m_name_l'></td>
-                                                        <td class="text-center" ng-bind=''></td>
-                                                        <td class="text-right" ng-bind=''></td>
-                                                        <td class="text-right" ng-bind=''></td>
+                                                        <td class="wrap-text" ng-bind='i.pro_title'></td>
+                                                        <td class="wrap-text text-center" ng-bind='i.pro_qty'></td>
+                                                        <td class="text-right" ng-bind='i.price_for_time | number'>
+                                                        </td>
+                                                        <td class="text-right" ng-bind='i.price_for_course | number'>
+                                                        </td>
                                                         <td style="width:80px">
-                                                            <button type="submit" name="_handleSubmit"
+                                                            <button type="button" name="_handleSubmit"
                                                                 class="btn btn-outline-danger">
-                                                                ຍ້າຍ <i class="icon-shopping-cart1"></i>
+                                                                <i class="icon-shopping-cart1"></i>
                                                             </button>
                                                         </td>
                                                     </tr>
@@ -125,7 +118,7 @@
                                     <div class="labels-container p-3">
                                         <div class="lablesContainerScroll p-2">
                                             <center>
-                                                <h4> ລາຍການທີ່ເລືອກ
+                                                <h4> ເລກບິນ
                                             </center>
                                             <div class="filters-block">
                                                 <table class="table table-hover table-sm">
@@ -146,19 +139,17 @@
                                                 </table>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="bottom-bar">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <button type="button" class="btn btn-primary btn-lg btn-block text-right"
-                                                style="font-size:20px;font-family:Impact">
-                                                <span style="font-size:20px;font-family:Impact"
-                                                    ng-bind="_sumOldBill | number"></span> ກີບ</button>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="button" class="btn btn-primary btn-lg btn-block text-right"
-                                                style="font-size:20px;font-family:Impact"> ກີບ</button>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-warning btn-lg btn-block p-2"
+                                                    style="font-size:25px">
+                                                    <i class="icon-printer"></i> ພິມບິນ</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-danger btn-lg btn-block p-2"
+                                                    style="font-size:25px">
+                                                    <i class="icon-power1"></i> ປິດການຂາຍ</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -170,21 +161,6 @@
                 </div>
                 <!-- Page content end -->
             </div>
-            <?php
-            if (isset($_POST['_handleSubmit'])) {
-                $tb_id1 = $_POST['first_id'];
-                $tb_id2 = $_POST['last_id'];
-                $od_id = $_POST['od_id'];
-                $od_qty = $_POST['od_qty'];
-                    $_joined = $_SQL($con, "UPDATE quick_orders SET tb_id='$tb_id2',od_bill_no='$b_No2' WHERE od_id = '$od_id'");
-                    if ($_joined) {
-                        echo "<script>window.location='./?first_id=$tb_id1 & last_id=$tb_id2'</script>";
-                    } else {
-                        echo "<script>window.location='./?first_id=$tb_id1 & last_id=$tb_id2'</script>";
-                    }
-            }
-    
-            ?>
             <!-- Page wrapper end -->
             <?php include('../../components/lib/script.php') ?>
             <script src="./app.js"></script>

@@ -19,7 +19,7 @@
             <div class="page-header">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການລະບົບ</li>
-                    <li class="breadcrumb-item active">ຂໍ້ມູນຜູ້ໃຊ້ລະບົບ</li>
+                    <li class="breadcrumb-item active">ລາຍການຈັດການ</li>
                 </ol>
 
                 <ul class="app-actions">
@@ -39,20 +39,22 @@
             <!-- Page header end -->
             <!-- Main container start -->
             <div class="main-container">
-                <div class="row" id="main">
+                <div class="row" id="data">
                     <?php 
                     $_USER_DATA=$_SQL($con,"SELECT * FROM spa_users");
                     foreach($_USER_DATA as $key){
                     ?>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12" id="sublist">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12" id="row">
                         <figure class="user-card">
                             <figcaption>
                                 <a href="./user-profile.php?id=<?php echo $key['user_id']?>" class="edit-card"><i
                                         class="icon-mode_edit"></i></a>
                                 <img src="../../img/<?php if($key['user_img']){echo $key['user_img'];}else{echo "user_null.png";} ?>"
-                                    data-darkbox='../../img/{{user_img}}' data-darkbox-group='two' alt="user"
-                                    class="profile" style="border:2px solid green;width:72px;height:72px;">
-                                <h5><?php echo  $key['user_fname'].' '.$key['user_lname']?></h5>
+                                    data-darkbox='../../img/<?php if($key['user_img']){echo $key['user_img'];}else{echo "user_null.png";} ?>'
+                                    data-darkbox-group='two' alt="user" class="profile"
+                                    style="border:2px solid green;width:72px;height:72px;">
+                                <h5><?php  _renderGenderShow($key['user_gender'])?>
+                                    <?php echo  $key['user_fname'].' '.$key['user_lname']?></h5>
                                 <ul class="list-group">
                                     <li class="list-group-item"><?php echo $key['user_address']?></li>
                                     <li class="list-group-item"><?php echo $key['user_tel']?></li>

@@ -63,7 +63,6 @@ app.controller("controller", function ($scope, $http) {
   };
   // UPDATE DATA
   $scope._onUpdate = function (x) {
-    console.log({ x });
     $scope.cate_id = x.cate_id;
     $scope.cate_title = x.cate_title;
     $scope.cate_note = x.cate_note;

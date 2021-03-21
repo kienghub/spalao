@@ -38,3 +38,43 @@ $_profile=$_ASSOC($_callProfileSystem);
 <link rel="stylesheet" href="../../assets/vendor/datatables/dataTables.bs4-custom.css" />
 <link href="../../assets/vendor/datatables/buttons.bs.css" rel="stylesheet" />
 <link href="../../assets/select2/dist/css/select2.min.css" rel="stylesheet" />
+<link href="../../assets/css/scroll_menu.css" rel="stylesheet" />
+<?php
+// ໄວ້ສະແດງຂໍ້ມູນ
+function _renderGenderShow($e)
+{
+    switch ($e) {
+        case "FEMALE":
+            echo "ນາງ";
+            break;
+        case "MALE":
+            echo "ທ້າວ";
+            break;
+        case "MONK":
+            echo "ພະ";
+            break;
+        case "OTHER":
+            echo "ອື່ນໆ";
+            break;
+    }
+}
+
+// ໄວ້ເລືອກຂໍ້ມູນ
+function _renderGenderSelect($e)
+{
+    switch ($e) {
+        case "FEMALE":
+            echo "ຍິງ";
+            break;
+        case "MALE":
+            echo "ຊາຍ";
+            break;
+        case "MONK":
+            echo "ພະ";
+            break;
+        case "OTHER":
+            echo "ອື່ນໆ";
+            break;
+    }
+}
+?>

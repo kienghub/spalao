@@ -23,29 +23,16 @@ app.controller("controller", function ($scope, $http) {
     });
   };
 
-  $scope._callSumAmount_old = function (bill_no) {
-    $http.get("sql/sum_order.php?bill_no=" + bill_no).success(function (data) {
-      console.log("====>", data);
-      $scope._sumOldBill = data;
+  $scope._callProduct = function () {
+    $http.get("sql/query_product.php").success(function (data) {
+      console.log(data);
+      $scope._callproduct = data;
+      $scope._length = data.length;
     });
-  };
-  $scope._callOrderData_old = function (bill_no) {
-    $http
-      .get("sql/query_order.php?bill_no=" + bill_no)
-      .success(function (data) {
-        console.log("====>", data);
-        $scope._callOrder = data;
-        $scope._length = data.length;
-      });
   };
 
-  $scope._onSelected_first = function () {
-    var id = $scope._oldTable;
-    $http.get("sql/call_bill.php?id=" + id).success(function (data) {
-      $scope._callBill_no = data;
-      $scope._callOrderData_old(data);
-      $scope._callSumAmount_old(data);
-    });
+  $scope._onSelected = function (id) {
+    $scope.cate_id = id;
   };
 
   // DELETE DATA

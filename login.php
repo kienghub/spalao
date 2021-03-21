@@ -21,6 +21,7 @@ $_profile=$_ASSOC($_callProfileSystem);
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <!-- Master CSS -->
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/fonts/style.css" />
     <?php
 function isVal()
 {echo "<font style='color:red'>*</font>";}
@@ -59,7 +60,9 @@ function isVal()
                                         id="remember_pwd">
                                     <label class="custom-control-label" for="remember_pwd"> ສະແດງລະຫັດຜ່ານ</label>
                                 </div>
-                                <button type="submit" name="onLogin" class="btn btn-primary">ເຂົ້າສູ່ລະບົບ</button>
+                                <button type="submit" name="onLogin" class="btn btn-primary w-50"><i
+                                        class="icon-log-in"></i>
+                                    ເຂົ້າສູ່ລະບົບ</button>
                             </div>
                         </div>
                     </div>

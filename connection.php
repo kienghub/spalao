@@ -27,7 +27,23 @@ try {
 @$_USER_CREATEDAT=$_SESSION['user_createdAt'];
 @$_USER_CREATEDBY=$_SESSION['user_createdBy'];
 @$_USER_IMG=$_SESSION['user_img'];
+@$_BRANCH=$_SESSION['user_branch'];
 
+// CHECK PERMISSION
+if($_USER_ROLE=="BAR"){
+$_isKitchen="hidden";
+$_isBar="";
+$_isHide="hidden";
+$_isShow="";
+}elseif($_USER_ROLE=="KITCHEN"){
+$_isHide="hidden";
+$_isKitchen="";
+$_isBar="hidden";
+$_isShow="";
+}else{
+$_isHide="";
+$_isShow="";
+}
 // quick function 
 date_default_timezone_set("Asia/Bangkok");
 @$_TIMESTAM = date("Y-m-d H:i:s");

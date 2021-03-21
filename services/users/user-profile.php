@@ -17,13 +17,15 @@
             <?php include_once('../../components/layout/heading.php')?>
             <!-- Page header start -->
             <?php 
-                $_callUserData=$_SQL($con,"SELECT*FROM spa_users where user_id='$_GET[id]'");
+                $_callUserData=$_SQL($con,"SELECT*FROM spa_users LEFT JOIN spa_branch ON spa_users.branch=spa_branch.branch_id  where spa_users.user_id='$_GET[id]'");
                 $res=$_ASSOC($_callUserData);
             ?>
             <div class="page-header">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການລະບົບ</li>
-                    <li class="breadcrumb-item" onclick="window.location='./index.php'">ຂໍ້ມູນຜູ້ໃຊ້ລະບົບ</li>
+                    <li class="breadcrumb-item" <?php echo $_isHide?> onclick="window.location='../settings/'">
+                        ຈັດການລະບົບ</li>
+                    <li class="breadcrumb-item" <?php echo $_isHide?> onclick="window.location='./index.php'">
+                        ຂໍ້ມູນຜູ້ໃຊ້ລະບົບ</li>
                     <li class="breadcrumb-item active">ລາຍລະອຽດ</li>
                 </ol>
 
@@ -73,16 +75,16 @@
                                         </div>
                                         <div class="list-group">
                                             <a href="#" class="list-group-item">ສິດການນຳໃຊ້:
-                                                <?php echo $res['user_role'] ?></a>
+                                                <?php echo $res['user_role']?></a>
                                             <a href="#" class="list-group-item">ສະຖານະ:
                                                 <?php if($res['user_status']==true){echo "ຍັງໃຊ້ງານ";}else{echo "ປິດໃຊ້ງານ";} ?></a></a>
                                             <a href="#" class="list-group-item">ວັນທີສ້າງ:
                                                 <?php echo $res['user_createdAt'] ?></a>
                                             <a href="#" class="list-group-item">ສ້າງໂດຍ:
-                                                <?php echo $res['user_fname'] ?></a>
+                                                <?php echo $res['user_createdBy'] ?></a>
                                         </div>
 
-                                        <span class="input-group-btn">
+                                        <span class="input-group-btn" <?php echo $_isHide ?>>
                                             <button type="button" onclick="_onDelete('<?php echo $_GET['id'] ?>')"
                                                 class="btn btn-outline-danger btn-block"><i class="icon-trash"></i>
                                                 ລຶບບັນຊີ</button>
@@ -165,6 +167,22 @@
                                                     <option value="ADMIN">ADMIN</option>
                                                 </select>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="">ສາຂາ <?php isVal()?></label>
+                                                <select class="form-control" name="branch" id="branch"
+                                                    <?php if(@$_GET['edit']==true){echo "";}else{echo "disabled";}?>
+                                                    required>
+                                                    <option value="<?php echo $res['branch']?>">
+                                                        <?php echo $res['branch_name_l']?></option>
+                                                    <?php 
+                                                        $_queryBranch=$_SQL($con,"SELECT * FROM spa_branch");
+                                                        foreach($_queryBranch as $key){
+                                                    ?>
+                                                    <option value="<?php echo $key['branch_id']?>">
+                                                        <?php echo $key['branch_name_l']?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                                             <?php if(@$_GET['edit']==true){echo "";}else{echo "hidden";}?>>
@@ -204,6 +222,7 @@
         $user_tel=$_SETSTRING($con,$_POST['user_tel']);
         $user_name=$_SETSTRING($con,$_POST['user_name']);
         $user_role=$_SETSTRING($con,$_POST['user_role']);
+        $branch=$_SETSTRING($con,$_POST['branch']);
 
         $_callUserDataResult=$_SQL($con,"SELECT*FROM spa_users where user_id='$id'");
         $rows=$_ASSOC($_callUserDataResult);
@@ -216,7 +235,7 @@
                 @$img = rand(100000, 1000000).".".$fileExt;
             }
         
-        $_newData="user_fname='$user_fname',user_lname='$user_lname',user_gender='$user_gender', user_address='$user_address',user_tel='$user_tel',user_name='$user_name', user_role='$user_role',user_img='$img', user_createdAt='$_TIMESTAM',user_createdBy='$_USER_ID'";
+        $_newData="user_fname='$user_fname',user_lname='$user_lname',user_gender='$user_gender', user_address='$user_address',user_tel='$user_tel',user_name='$user_name', user_role='$user_role',user_img='$img', user_createdAt='$_DATE',user_createdBy='$_USER_NAME',branch='$branch'";
         $_updateUser=$_SQL($con,"UPDATE spa_users SET $_newData WHERE user_id='$id'");
         if($_updateUser){
         @unlink($tmp_dir, $upload_dir.$rows['user_img']);
