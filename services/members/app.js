@@ -1,84 +1,114 @@
-function _Success() {
+var app = angular.module("app", []);
+app.controller("member", function ($scope, $http) {
+  $scope.btnName = "ບັນທຶກ";
+  $scope.titles = "ເພີ່ມຂໍ້ມູນສະມາຊິກ";
+  $scope._delete = true;
+  function _Success() {
     Notiflix.Notify.Success("ການດຳເນີນງານສຳເລັດ");
-}
+  }
 
-function _Warning(e) {
+  function _Warning(e) {
     Notiflix.Notify.Warning(e);
-}
+  }
 
-function _Fail() {
+  function _Fail() {
     Notiflix.Notify.Failure("ການດຳເນີນງານບໍ່ສຳເລັດ");
-}
-// CREATE DATA 
-$('#onSubmitMember').on('submit', function (event) {
-    event.preventDefault();
-    var mb_fullName = $('#mb_fullName').val()
-    var mb_phoneNumber = $('#mb_phoneNumber').val()
-    var mb_address = $('#mb_address').val()
-    if (mb_fullName == "") { _Warning('ກະລຸນາປ້ອນຊື່ ແລະ ນາມສະກຸນ') }
-    else if (mb_phoneNumber == "") { _Warning('ກະລຸນາປ້ອນເບີໂທລະສັບ') }
-    else if (mb_address == "") { _Warning('ກະລຸນາປ້ອນທີ່ຢູ່') }
-    else {
-        $.ajax({
-            url: "./sql/create_member.php",
-            type: "POST",
-            data: new FormData(this),
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                console.log({ data });
-                if (data == "DUPLICATED") {
-                    _Warning('ຂໍ້ມູນທີ່ທ່ານປ້ອນມີໃນຖານຂໍ້ມູນແລ້ວ')
-                } else if (data == "SUCCESS") {
-                    _Success()
-                    setTimeout(function () {
-                        window.location.reload()
-                    }, 1000);
-                } else {
-                    _Fail()
-                }
-            }
+  }
+  $scope._refresh = function () {
+    window.location.reload();
+  };
+  // QUERY DATA
+  $scope._callMemberData = function () {
+    $http.get("sql/query_member.php").success(function (data) {
+      $scope._members = data;
+      $scope._length = data.length;
+    });
+  };
+  // INSERT DATA
+  $scope._onSave = function () {
+    if ($scope.mb_fullName == null) {
+      _Warning("ກະລຸນາປ້ອນຊື່ ແລະ ນາມສະກຸນກ່ອນ");
+    } else if ($scope.mb_phoneNumber == null) {
+      _Warning("ກະລຸນາປ້ອນເບີໂທກ່ອນ");
+    } else if ($scope.mb_address == null) {
+      _Warning("ກະລຸນາປ້ອນທີ່ຢູ່ກ່ອນ");
+    } else {
+      $http
+        .post("sql/create_member.php", {
+          mb_id: $scope.mb_id,
+          mb_fullName: $scope.mb_fullName,
+          mb_phoneNumber: $scope.mb_phoneNumber,
+          mb_address: $scope.mb_address,
+          mb_note: $scope.mb_note,
+          btnName: $scope.btnName
+        })
+        .success(function (output) {
+          if (output == "DATA_READY_EXIT") {
+            _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີຢູ່ແລ້ວ");
+          } else if (output == 7070) {
+            _Success();
+            $scope.mb_id = null;
+            $scope.mb_fullName = null;
+            $scope.mb_phoneNumber = null;
+            $scope.mb_address = null;
+            $scope.mb_note = null;
+            $scope.btnName = "ບັນທຶກ";
+            $scope._callMemberData();
+          } else {
+            _Fail();
+            $scope._callMemberData();
+          }
         });
     }
-})
+  };
 
-// UPDATE DATA 
-function _onUpdate(id) {
-    $('#addMember').modal()
-    $('#btnName').html('ແກ້ໄຂ')
-    $.ajax({
-        url: "./sql/query_member.php",
-        type: "GET",
-        data: { id: id },
-        dataType: "json",
-        success: function (data) {
-            $('#mb_id').val(data.mb_id)
-            $('#mb_fullName').val(data.mb_fullName)
-            $('#mb_phoneNumber').val(parseInt(data.mb_phoneNumber))
-            $('#mb_address').val(data.mb_address)
-            $('#mb_note').val(data.mb_note)
+  //   CLEAR FORM
+  $scope._onReset = function () {
+    $scope.mb_id = null;
+    $scope.mb_fullName = null;
+    $scope.mb_phoneNumber = null;
+    $scope.mb_address = null;
+    $scope.mb_note = null;
+    $scope.btnName = "ບັນທຶກ";
+    $scope._edit = false;
+    $scope._delete = true;
+  };
+  //   UPDATE DATA
+  $scope._onUpdate = function (data) {
+    $scope.mb_id = data.mb_id;
+    $scope.mb_fullName = data.mb_fullName;
+    $scope.mb_phoneNumber = Number(data.mb_phoneNumber);
+    $scope.mb_address = data.mb_address;
+    $scope.titles = "ແກ້ໄຂຂໍ້ມູນສະມາຊິກ";
+    $scope.btnName = "ແກ້ໄຂ";
+    $scope._edit = true;
+    $scope._delete = false;
+  };
 
-        }
-    });
-}
-// DELETE DATA 
-function _onDelete(id) {
-    Notiflix.Confirm.Show('ສະຖານະ', 'ຕ້ອງການ ລຶບຂໍ້ມູນນີ້ ແທ້ບໍ່?', 'ຕົກລົງ', 'ຍົກເລີກ', function () {
-        $.ajax({
-            url: "./sql/delete_member.php",
-            type: "GET",
-            data: { id: id },
-            success: function (dataResult) {
-                if (dataResult == "SUCCESS") {
-                    _Success()
-                    setTimeout(() => {
-                        window.location.reload()
-                    }, 1000);
-                } else {
-                    _Fail()
-                }
+  // DELETE DATA
+  $scope._onDelete = function (id) {
+    Notiflix.Confirm.Show(
+      "ສະຖານະ",
+      "ທ່ານຕ້ອງການລຶບຂໍ້ມູນນີ້ແທ້ ຫຼື ບໍ່ ?",
+      "ຕົກລົງ",
+      "ຍົກເລີກ",
+      function () {
+        $http
+          .post("sql/delete_member.php", { id: id })
+          .success(function (data) {
+            if (data == 7070) {
+              _Success();
+              $scope._onReset();
+              $scope._callMemberData();
+            } else {
+              _Fail();
+              $scope._callMemberData();
             }
-        });
-    });
-}
-
+          });
+      },
+      function () {
+        $scope._callMemberData();
+      }
+    );
+  };
+});

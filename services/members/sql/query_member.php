@@ -1,7 +1,11 @@
 <?php
 include '../../../connection.php';
-    $selectMember ="SELECT * FROM spa_member WHERE mb_id='".$_GET['id']."'";
-    $resultMember =$DB_con->prepare($selectMember);
-    $resultMember->execute();
-    $_row=$resultMember->fetch();
-    echo json_encode($_row);
+$output = array();
+$query  =mysqli_query($con,"SELECT*FROM spa_member");
+if (mysqli_num_rows($query) > 0) {
+    while ($row = mysqli_fetch_array($query)) {
+        $output[] = $row;
+    }
+    echo json_encode($output);
+}
+?>

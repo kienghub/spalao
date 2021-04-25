@@ -1,31 +1,46 @@
-<?php
-include('../../../connection.php');
-@$mb_fullName = $_POST['mb_fullName'];
-@$mb_phoneNumber = $_POST['mb_phoneNumber'];
-@$mb_address = $_POST['mb_address'];
-@$mb_note = $_POST['mb_note'];
-if ($_POST['mb_id'] == "") {
-    //Check DAta DUPLICATE
-    $selectMember = $_SQL($con, "SELECT * FROM spa_member WHERE mb_fullName='$mb_fullName' AND mb_phoneNumber='$mb_phoneNumber'");
+<?php 
+include ('../../../connection.php');
+$info = json_decode(file_get_contents("php://input"));
+@$x=count($info);
+if ($x > 0) {
+    @$mb_fullName = $_SUBSTRING($con, $info->mb_fullName);
+    @$mb_phoneNumber =$_SUBSTRING($con, $info->mb_phoneNumber);
+    @$mb_address = $_SUBSTRING($con, $info->mb_address);
+    @$mb_note = $_SUBSTRING($con, $info->mb_note);
+    $btnName = $info->btnName;
+// INSERT DATA
+$select_max_id=$_SQL($con, "SELECT _id FROM spa_member WHERE _id=(SELECT MAX(_id)FROM spa_member)");
+    $get_result=$_ASSOC($select_max_id);
+    $max_id=$get_result['_id'];
+    if($max_id<1){
+        $id=1;
+    }else{
+        $id=$max_id+1;
+    }
+
+    if ($btnName == "ບັນທຶກ") {
+    $selectMember = $_SQL($con, "SELECT * FROM spa_member WHERE mb_fullName='$mb_fullName' AND mb_phoneNumber='$mb_phoneNumber' AND branch_id='$_BRANCH'");
     $res = $_COUNT($selectMember);
     if ($res > 0) {
         echo 'DUPLICATED'; 
     } else {
-        $data = "'$_AUTO_ID','$mb_fullName','$mb_phoneNumber','$mb_address','$mb_note','$_TIMESTAME','$_USER_NAME'";
+        $data = "'$id','$_AUTO_ID','$mb_fullName','$mb_phoneNumber','$mb_address','$mb_note','$_TIMESTAMP','$_USER_ID','$_BRANCH'";
         $_createMember = $_SQL($con, "INSERT INTO spa_member VALUE($data)");
         if ($_createMember) {
-            echo 'SUCCESS';
+            echo 7070;
         } else {
-            echo 'FAIL';
+            echo 4466;
         }
     }
-} else {
-    $id = $_POST['mb_id'];
-    $_newData = "mb_fullName='$mb_fullName',mb_phoneNumber='$mb_phoneNumber',mb_address='$mb_address',mb_note='$mb_note',mb_createdAt='$_TIMESTAME',mb_createdBy='$_USER_NAME'";
+}else {
+   $id =$info->mb_id;
+    $_newData = "mb_fullName='$mb_fullName',mb_phoneNumber='$mb_phoneNumber',mb_address='$mb_address',mb_note='$mb_note',mb_createdAt='$_TIMESTAMP',mb_createdBy='$_USER_ID'";
     $_updateMember = $_SQL($con, "UPDATE spa_member SET $_newData WHERE mb_id='$id'");
     if ($_updateMember) {
-        echo 'SUCCESS';
+        echo 7070;
     } else {
-        echo 'FAIL';
+        echo 4466;
     }
 }
+}
+?>

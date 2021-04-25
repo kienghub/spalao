@@ -17,7 +17,6 @@ app.controller("controller", function ($scope, $http) {
   // display data
   $scope._callCategory = function () {
     $http.get("sql/call_category.php").success(function (data) {
-      console.log(data);
       $scope._callcate = data;
       $scope._length = data.length;
     });
@@ -25,7 +24,6 @@ app.controller("controller", function ($scope, $http) {
 
   $scope._callProduct = function () {
     $http.get("sql/query_product.php").success(function (data) {
-      console.log(data);
       $scope._callproduct = data;
       $scope._length = data.length;
     });

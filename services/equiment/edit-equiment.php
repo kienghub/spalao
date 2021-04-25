@@ -171,14 +171,14 @@ $_res = $_ASSOC($queryEquiment);
     <?php
     require_once('../../connection.php');
     if (isset($_POST['_handleSubmit'])) {
-        $e_id = $_SETSTRING($con, $_POST['e_id']);
-        $e_cate_id = $_SETSTRING($con, $_POST['e_cate_id']);
-        $e_name_l = $_SETSTRING($con, $_POST['e_name_l']);
-        $e_name_e = $_SETSTRING($con, $_POST['e_name_e']);
-        $e_type = $_SETSTRING($con, $_POST['e_type']);
-        $e_size = $_SETSTRING($con, $_POST['e_size']);
-        $e_Bprice = $_SETSTRING($con, $_POST['e_Bprice']);
-        $e_note = $_SETSTRING($con, $_POST['e_note']);
+        $e_id = $_SUBSTRING($con, $_POST['e_id']);
+        $e_cate_id = $_SUBSTRING($con, $_POST['e_cate_id']);
+        $e_name_l = $_SUBSTRING($con, $_POST['e_name_l']);
+        $e_name_e = $_SUBSTRING($con, $_POST['e_name_e']);
+        $e_type = $_SUBSTRING($con, $_POST['e_type']);
+        $e_size = $_SUBSTRING($con, $_POST['e_size']);
+        $e_Bprice = $_SUBSTRING($con, $_POST['e_Bprice']);
+        $e_note = $_SUBSTRING($con, $_POST['e_note']);
 
         //Check DAta IMG
         $selectMenu = $_SQL($con, "SELECT * FROM spa_equiment WHERE e_id='$e_id'");

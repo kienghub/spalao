@@ -18,7 +18,7 @@
             <!-- Page header start -->
             <div class="page-header">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການລະບົບ</li>
+                    <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການຂໍ້ມູນ</li>
                     <li class="breadcrumb-item active">ຂໍ້ມູນຄອສ໌</li>
                 </ol>
 

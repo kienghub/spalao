@@ -30,23 +30,9 @@ try {
 @$_BRANCH=$_SESSION['user_branch'];
 
 // CHECK PERMISSION
-if($_USER_ROLE=="BAR"){
-$_isKitchen="hidden";
-$_isBar="";
-$_isHide="hidden";
-$_isShow="";
-}elseif($_USER_ROLE=="KITCHEN"){
-$_isHide="hidden";
-$_isKitchen="";
-$_isBar="hidden";
-$_isShow="";
-}else{
-$_isHide="";
-$_isShow="";
-}
 // quick function 
 date_default_timezone_set("Asia/Bangkok");
-@$_TIMESTAM = date("Y-m-d H:i:s");
+@$_TIMESTAMP = date("Y-m-d H:i:s");
 @$_DATE_FORMAT = date("Y-M-d-D");
 @$_TIME = date("H:i");
 @$_GEN_ID = date("ymdhi");
@@ -56,10 +42,10 @@ date_default_timezone_set("Asia/Bangkok");
 @$_MONTH = date("m");
 $_WEEK_DAY=date('D');
 @$_AUTO_GEN_ID =rand(10000,100);
-@$_AUTO_ID = md5($_TIMESTAM);
+@$_AUTO_ID = md5($_TIMESTAMP);
 @$_DAY = date("d");
 @$_CODE = md5(1000000030005000);
-@$_SETSTRING = "mysqli_real_escape_string";
+@$_SUBSTRING = "mysqli_real_escape_string";
 @$_SQL = "mysqli_query";
 @$_ARRAY = "mysqli_fetch_array";
 @$_ASSOC = "mysqli_fetch_assoc";
@@ -67,5 +53,5 @@ $_WEEK_DAY=date('D');
 
 @$_KIP = "<font style='color:red;font-size:15px'>.₭</font>";
 @$_HOUR = "<font style='color:#086B68;font-weight:bold;font-size:15px'> 'h</font>";
-@$_PERCEN = "<font style='color:#F40C3D;font-weight:bold;font-size:15px'> %</font>";
+@$_PERCENT = "<font style='color:#F40C3D;font-weight:bold;font-size:15px'> %</font>";
 ?>

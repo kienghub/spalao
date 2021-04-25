@@ -17,7 +17,7 @@ include('../../../connection.php');
 }else if ($res > 0) {
         echo 'DATA_READY_EXIT'; 
 }else{
-       $data = "'$_AUTO_ID','$ere_equiment_id','$ere_qty','$ere_Bprice','$ere_time','true','$ere_note','$_TIMESTAM','$_USER_ID'";
+       $data = "'$_AUTO_ID','$ere_equiment_id','$ere_qty','$ere_Bprice','$ere_time','true','$ere_note','$_TIMESTAMP','$_USER_ID'";
         $_createResivce = $_SQL($con, "INSERT INTO spa_eresivce VALUE($data)");
         if ($_createResivce) {
             $_SQL($con,"UPDATE spa_estock SET est_qty=est_qty+'$ere_qty' WHERE est_equiment='$ere_equiment_id'");

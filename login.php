@@ -77,7 +77,7 @@ function isVal()
     <?php 
       if (isset($_POST['onLogin'])) {
         @session_start();
-        @$username = $_SETSTRING($con, $_POST['user_name']);
+        @$username = $_SUBSTRING($con, $_POST['user_name']);
         @$password = md5($_POST['user_password']);
         $_DATA_USERS = mysqli_query($con, "SELECT * FROM spa_users WHERE user_name='$username' AND user_password='$password' AND user_status='true' OR user_tel='$username'");
         $count = mysqli_num_rows($_DATA_USERS);
@@ -106,7 +106,7 @@ function isVal()
             @$lat = $coordinates[0]; // latitude
             @$long = $coordinates[1]; // longitude
             @$hostName = gethostname();
-            $_SQL($con, "INSERT INTO spa_login VALUES('$_AUTO_ID','$user_name','$hostName','$address','$lat','$long','$_TIMESTAM','$_YEAR')");
+            $_SQL($con, "INSERT INTO spa_login VALUES('$_AUTO_ID','$user_name','$hostName','$address','$lat','$long','$_TIMESTAMP','$_YEAR')");
             echo "<script>Notiflix.Loading.Standard('ກຳລັງດຳເນີນງານ...');setTimeout(function () {window.location='services/home/'}, 500);</script>";
         } else {
             echo "<script> Notiflix.Report.Failure('ຜິດພາດ','ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ ກະລຸນາລອງໃໝ່ອີກຄັ້ງ !', 'ປິດ',function () {window.location='index.php'});</script>";

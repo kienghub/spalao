@@ -18,7 +18,7 @@
             <!-- Page header start -->
             <div class="page-header">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການລະບົບ</li>
+                    <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການຂໍ້ມູນ</li>
                     <li class="breadcrumb-item active">ເພີ່ມຂໍ້ມູນສຳນັກງານ</li>
                 </ol>
                 <ul class="app-actions">
@@ -121,11 +121,11 @@
     require_once('../../connection.php');
     if(isset($_POST['_handleSubmit'])){
         $id=$_POST['p_id'];
-        $p_title=$_SETSTRING($con,$_POST['p_title']);
-        $p_contact1=$_SETSTRING($con,$_POST['p_contact1']);
-        $p_contact2=$_SETSTRING($con,$_POST['p_contact2']);
-        $p_contact3=$_SETSTRING($con,$_POST['p_contact3']);
-        $p_detail=$_SETSTRING($con,$_POST['p_detail']);
+        $p_title=$_SUBSTRING($con,$_POST['p_title']);
+        $p_contact1=$_SUBSTRING($con,$_POST['p_contact1']);
+        $p_contact2=$_SUBSTRING($con,$_POST['p_contact2']);
+        $p_contact3=$_SUBSTRING($con,$_POST['p_contact3']);
+        $p_detail=$_SUBSTRING($con,$_POST['p_detail']);
 
         @$file_img    = $_FILES['p_logo']['name'];
         @$tmp_dir    = $_FILES['p_logo']['tmp_name'];
@@ -136,7 +136,7 @@
                 @$img = rand(100000, 1000000).".".$fileExt;
             }
         
-        $_register=$_SQL($con,"INSERT aws_profile_system value('$_AUTO_ID','$p_title','$p_contact1', '$p_contact2','$p_contact3','$p_detail','true','$img','$_TIMESTAM','$_USER_NAME')");
+        $_register=$_SQL($con,"INSERT aws_profile_system value('$_AUTO_ID','$p_title','$p_contact1', '$p_contact2','$p_contact3','$p_detail','true','$img','$_TIMESTAMP','$_USER_NAME')");
         if($_register){
         @move_uploaded_file($tmp_dir, $upload_dir.$img);
         echo "<script>

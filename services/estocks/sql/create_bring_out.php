@@ -16,7 +16,7 @@ include('../../../connection.php');
 }else if ($res > 0) {
         echo 'DATA_READY_EXIT'; 
 }else{
-       $data = "'$_AUTO_ID','$bring_equiment_id','$bring_qty','$bring_time','true','$bring_note','$_TIMESTAM','$_USER_ID'";
+       $data = "'$_AUTO_ID','$bring_equiment_id','$bring_qty','$bring_time','true','$bring_note','$_TIMESTAMP','$_USER_ID'";
         $_creatbroked = $_SQL($con, "INSERT INTO spa_bring_equiment VALUE($data)");
         if ($_creatbroked) {
             $_SQL($con,"UPDATE spa_estock SET est_qty=est_qty-'$bring_qty' WHERE est_equiment='$bring_equiment_id'");

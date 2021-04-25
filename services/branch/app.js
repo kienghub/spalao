@@ -37,6 +37,7 @@ app.controller("controller", function ($scope, $http) {
           btnName: $scope.btnName
         })
         .success(function (output) {
+          console.log(output);
           if (output == "DATA_READY_EXIT") {
             _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີຢູ່ແລ້ວ");
           } else if (output == 7070) {
@@ -55,36 +56,43 @@ app.controller("controller", function ($scope, $http) {
   };
   //   UPDATE DATA
   $scope._onUpdate = function (data) {
-    ($scope.branch_id = data.branch_id),
-      ($scope.branch_name_l = data.branch_name_l),
-      ($scope.branch_name_e = data.branch_name_e),
-      ($scope.titles = "ແກ້ໄຂຂໍ້ມູນສາຂາ");
+    $scope.branch_id = data.branch_id;
+    $scope.branch_name_l = data.branch_name_l;
+    $scope.branch_name_e = data.branch_name_e;
+    $scope.titles = "ແກ້ໄຂຂໍ້ມູນສາຂາ";
     $scope.btnName = "ແກ້ໄຂ";
-    addBranch.modal("show");
   };
 
+  // clear form
+
+  $scope._onReset = function () {
+    $scope.branch_id = data.branch_id;
+    $scope.branch_name_l = null;
+    $scope.branch_name_e = null;
+    $scope.btnName = "ບັນທຶກ";
+  };
   // DELETE DATA
   $scope._onDelete = function (id) {
     Notiflix.Confirm.Show(
       "ສະຖານະ",
-      "ຕ້ອງການ ລຶບຂໍ້ມູນນີ້ ແທ້ບໍ່?",
+      "ທ່ານຕ້ອງການລຶບຂໍ້ມູນນີ້ແທ້ ຫຼື ບໍ່ ?",
       "ຕົກລົງ",
       "ຍົກເລີກ",
       function () {
-        $.ajax({
-          url: "./sql/delete_branch.php",
-          type: "GET",
-          data: { id: id },
-          success: function (dataResult) {
-            if (dataResult == "SUCCESS") {
+        $http
+          .post("sql/delete_branch.php", { id: id })
+          .success(function (data) {
+            if (data == 7070) {
               _Success();
               $scope._callBranch();
             } else {
               _Fail();
               $scope._callBranch();
             }
-          }
-        });
+          });
+      },
+      function () {
+        $scope._callBranch();
       }
     );
   };

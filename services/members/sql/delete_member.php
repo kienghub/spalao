@@ -1,10 +1,14 @@
 <?php
 include '../../../connection.php';
-    $id = $_GET['id'];
-    $query = "DELETE FROM spa_member WHERE mb_id='$id'";
+@$data = json_decode(file_get_contents("php://input"));
+@$x=count($data);
+if($x > 0) {
+    $id  = $data->id;
+     $query = "DELETE FROM spa_member WHERE mb_id='$id'";
     if (mysqli_query($con, $query)) {
-        echo 'SUCCESS';
+        echo 7070;
     } else {
-        echo 'FAIL';
+        echo 4466;
     }
+}
 ?>

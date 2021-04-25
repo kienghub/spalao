@@ -1,36 +1,49 @@
-function _Success() {
-  Notiflix.Notify.Success("ການດຳເນີນງານສຳເລັດ");
-}
+var app = angular.module("app", []);
+app.controller("user", function ($scope, $http) {
+  function _Success() {
+    Notiflix.Notify.Success("ການດຳເນີນງານສຳເລັດ");
+  }
 
-function _Warning(e) {
-  Notiflix.Notify.Warning(e);
-}
+  function _Warning(e) {
+    Notiflix.Notify.Warning(e);
+  }
 
-function _Fail() {
-  Notiflix.Notify.Failure("ການດຳເນີນງານບໍ່ສຳເລັດ");
-}
+  function _Fail() {
+    Notiflix.Notify.Failure("ການດຳເນີນງານບໍ່ສຳເລັດ");
+  }
+  $scope._refresh = function () {
+    window.location.reload();
+  };
+  // QUERY DATA
+  $scope._callUsers = function () {
+    $http.get("sql/user-query.php").success(function (data) {
+      $scope._users = data;
+      $scope._length = data.length;
+    });
+  };
 
-function _onDelete(id) {
-  Notiflix.Confirm.Show(
-    "ສະຖານະ",
-    "ຕ້ອງການ ລຶບຂໍ້ມູນນີ້ ແທ້ບໍ່?",
-    "ຕົກລົງ",
-    "ຍົກເລີກ",
-    function () {
-      $.ajax({
-        url: "./sql/delete-user.php",
-        type: "GET",
-        data: { id: id },
-        success: function (dataResult) {
-          console.log({ dataResult });
-          if (dataResult == "SUCCESS") {
+  // DELETE DATA
+  $scope._onDelete = function (id) {
+    Notiflix.Confirm.Show(
+      "ສະຖານະ",
+      "ທ່ານຕ້ອງການລຶບຂໍ້ມູນນີ້ແທ້ ຫຼື ບໍ່ ?",
+      "ຕົກລົງ",
+      "ຍົກເລີກ",
+      function () {
+        $http.post("sql/delete-user.php", { id: id }).success(function (data) {
+          if (data == 7070) {
             _Success();
-            window.location = "./";
+            $scope._onReset();
+            $scope._callUsers();
           } else {
             _Fail();
+            $scope._callUsers();
           }
-        }
-      });
-    }
-  );
-}
+        });
+      },
+      function () {
+        $scope._callUsers();
+      }
+    );
+  };
+});

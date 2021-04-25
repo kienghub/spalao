@@ -18,7 +18,7 @@ $_profile=$_ASSOC($_callProfileSystem);
 <meta name="description" content="spa">
 <meta name="author" content="kieng">
 <link rel="shortcut icon"
-    href="../../img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>" />
+     href="../../img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>" />
 
 <!-- Title -->
 <title>SPA</title>
@@ -38,7 +38,10 @@ $_profile=$_ASSOC($_callProfileSystem);
 <link rel="stylesheet" href="../../assets/vendor/datatables/dataTables.bs4-custom.css" />
 <link href="../../assets/vendor/datatables/buttons.bs.css" rel="stylesheet" />
 <link href="../../assets/select2/dist/css/select2.min.css" rel="stylesheet" />
+<link href="../../assets/darkbox/darkbox.css" rel="stylesheet" />
 <link href="../../assets/css/scroll_menu.css" rel="stylesheet" />
+<!-- Lobipanel css -->
+<link rel="stylesheet" href="../../assets/vendor/lobipanel/css/lobipanel.css" />
 <?php
 // ໄວ້ສະແດງຂໍ້ມູນ
 function _renderGenderShow($e)
