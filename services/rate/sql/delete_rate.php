@@ -1,10 +1,15 @@
 <?php
 include '../../../connection.php';
-    $id = $_GET['id'];
+@$data = json_decode(file_get_contents("php://input"));
+@$x=count($data);
+if($x > 0) {
+    $id    = $data->cate_id;
     $query = "DELETE FROM spa_rate WHERE rate_id='$id'";
     if (mysqli_query($con, $query)) {
-        echo 'SUCCESS';
+        echo 200;
     } else {
-        echo 'FAIL';
+        echo 400;
     }
+}
+mysqli_close($con);
 ?>

@@ -31,7 +31,7 @@ app.controller("user", function ($scope, $http) {
       "ຍົກເລີກ",
       function () {
         $http.post("sql/delete-user.php", { id: id }).success(function (data) {
-          if (data == 7070) {
+          if (data == 200) {
             _Success();
             $scope._onReset();
             $scope._callUsers();

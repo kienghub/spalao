@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ["datatables"]);
 app.controller("member", function ($scope, $http) {
   $scope.btnName = "ບັນທຶກ";
   $scope.titles = "ເພີ່ມຂໍ້ມູນສະມາຊິກ";
@@ -45,7 +45,7 @@ app.controller("member", function ($scope, $http) {
         .success(function (output) {
           if (output == "DATA_READY_EXIT") {
             _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີຢູ່ແລ້ວ");
-          } else if (output == 7070) {
+          } else if (output == 200) {
             _Success();
             $scope.mb_id = null;
             $scope.mb_fullName = null;
@@ -96,7 +96,7 @@ app.controller("member", function ($scope, $http) {
         $http
           .post("sql/delete_member.php", { id: id })
           .success(function (data) {
-            if (data == 7070) {
+            if (data == 200) {
               _Success();
               $scope._onReset();
               $scope._callMemberData();

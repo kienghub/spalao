@@ -11,4 +11,5 @@ if (mysqli_num_rows($query) > 0) {
     }
     echo json_encode($output);
 }
+mysqli_close($con);
 ?>

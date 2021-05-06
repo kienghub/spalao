@@ -6,9 +6,10 @@ if($x > 0) {
     $id    = $data->cate_id;
     $query = "DELETE FROM spa_category WHERE cate_id='$id'";
     if (mysqli_query($con, $query)) {
-        echo 3000;
+        echo 200;
     } else {
-        echo 7070;
+        echo 400;
     }
 }
+mysqli_close($con);
 ?>

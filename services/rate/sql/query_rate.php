@@ -1,7 +1,12 @@
 <?php
 include '../../../connection.php';
-    $selectRate ="SELECT * FROM spa_rate WHERE rate_id='".$_GET['id']."'";
-    $resultRate =$DB_con->prepare($selectRate);
-    $resultRate->execute();
-    $_row=$resultRate->fetch();
-    echo json_encode($_row);
+$output = array();
+$query  =mysqli_query($con,"SELECT * FROM spa_rate LEFT JOIN spa_users On spa_users.user_id=spa_rate.rate_createdBy ORDER BY spa_rate._id DESC");
+if (mysqli_num_rows($query) > 0) {
+    while ($row = mysqli_fetch_array($query)) {
+        $output[] = $row;
+    }
+    echo json_encode($output);
+}
+mysqli_close($con);
+?>

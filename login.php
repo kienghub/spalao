@@ -7,74 +7,86 @@ $_profile=$_ASSOC($_callProfileSystem);
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Meta -->
-    <meta name="description" content="aws">
-    <meta name="author" content="kieng">
-    <link rel="shortcut icon"
-        href="./img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>" />
-    <!-- Title -->
-    <title>Login</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-    <!-- Master CSS -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="stylesheet" href="./assets/fonts/style.css" />
-    <?php
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- Meta -->
+     <meta name="description" content="LAOPAYOOK">
+     <meta name="author" content="LAOPAYOOK">
+     <link rel="shortcut icon"
+          href="./img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>" />
+     <!-- Title -->
+     <title>LAOPAYOOK</title>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+     <!-- Master CSS -->
+     <link rel="stylesheet" href="./assets/css/main.css" />
+     <link rel="stylesheet" href="./assets/fonts/style.css" />
+     <?php
 function isVal()
 {echo "<font style='color:red'>*</font>";}
 ?>
+     <style>
+     a,
+     label,
+     .form-control,
+     .btn {
+          font-size: 16px !important;
+          font-weight: normal !important;
+     }
+     </style>
 </head>
 
 <body class="authentication">
-    <!-- Container start -->
-    <div class="container">
-        <form action="#" method="post">
-            <div class="row justify-content-md-center">
-                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
-                    <div class="login-screen">
-                        <div class="login-box">
-                            <div style="text-align:center!important">
-                                <center><img
-                                        src="./img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>"
-                                        alt="logo-app" style="width:120px;height:120px" /></center>
-                                <h2>S<font style="color:#223A5E">PA</font>
-                                </h2>
-                            </div>
-                            <div class="form-group">
+     <!-- Container start -->
+     <div class="container">
+          <form action="#" method="post">
+               <div class="row justify-content-md-center">
+                    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                         <div class="login-screen">
+                              <div class="login-box">
+                                   <div style="text-align:center!important">
+                                        <center><img
+                                                  src="./img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>"
+                                                  alt="logo-app" style="width:120px;height:120px" /></center>
+                                        <h2>
+                                             <font style="color:#223A5E">LAOPAYOOK</font>
+                                        </h2>
+                                   </div>
+                                   <div class="form-group">
 
-                                <label for="">ຊື່ຜູ້ໃຊ້ ຫຼື ເບີໂທ</label>
-                                <input type="text" class="form-control" name="user_name"
-                                    placeholder="ກະລຸນາປ້ອນຊື່ຜູ້ໃຊ້ ຫຼື ເບີໂທ" />
-                            </div>
-                            <div class="form-group">
-                                <label for="">ລະຫັດຜ່ານ</label>
-                                <input type="password" class="form-control" id="password" name="user_password"
-                                    placeholder="ກະລຸນາປ້ອນລະຫັດຜ່ານ" />
-                            </div>
-                            <div class="actions mb-4">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" onchange="_view()"
-                                        id="remember_pwd">
-                                    <label class="custom-control-label" for="remember_pwd"> ສະແດງລະຫັດຜ່ານ</label>
-                                </div>
-                                <button type="submit" name="onLogin" class="btn btn-primary w-50"><i
-                                        class="icon-log-in"></i>
-                                    ເຂົ້າສູ່ລະບົບ</button>
-                            </div>
-                        </div>
+                                        <label for="">ຊື່ຜູ້ໃຊ້ ຫຼື ເບີໂທ</label>
+                                        <input type="text" class="form-control" name="user_name"
+                                             placeholder="ກະລຸນາປ້ອນຊື່ຜູ້ໃຊ້ ຫຼື ເບີໂທ" />
+                                   </div>
+                                   <div class="form-group">
+                                        <label for="">ລະຫັດຜ່ານ</label>
+                                        <input type="password" class="form-control" id="password" name="user_password"
+                                             placeholder="ກະລຸນາປ້ອນລະຫັດຜ່ານ" />
+                                   </div>
+                                   <div class="actions mb-4">
+                                        <div class="custom-control custom-checkbox">
+                                             <input type="checkbox" class="custom-control-input" onchange="_view()"
+                                                  id="remember_pwd">
+                                             <label class="custom-control-label" for="remember_pwd"
+                                                  style="font-size:13px!important">
+                                                  ສະແດງລະຫັດຜ່ານ</label>
+                                        </div>
+                                        <button type="submit" name="onLogin" class="btn btn-primary w-50"><i
+                                                  class="icon-log-in"></i>
+                                             ເຂົ້າສູ່ລະບົບ</button>
+                                   </div>
+                              </div>
+                         </div>
                     </div>
-                </div>
-            </div>
-        </form>
-    </div>
-    </div>
-    <!-- Container end -->
-    <script type="text/javascript" src="./assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/AIO/notiflix-aio-2.0.0.min.js"></script>
-    <?php 
+               </div>
+          </form>
+     </div>
+     </div>
+     <!-- Container end -->
+     <script type="text/javascript" src="./assets/js/jquery.min.js"></script>
+     <script type="text/javascript" src="assets/AIO/notiflix-aio-2.0.0.min.js"></script>
+     <?php 
       if (isset($_POST['onLogin'])) {
         @session_start();
         @$username = $_SUBSTRING($con, $_POST['user_name']);
@@ -95,8 +107,8 @@ function isVal()
             $_SESSION['user_createdAt'] = $row['user_createdAt'];
             $_SESSION['user_createdBy'] = $row['user_createdBy'];
             $_SESSION['user_img'] = $row['user_img'];
-            $_SESSION['loggedin'] = 1;
-            $_SESSION['limit']=20;
+            $_SESSION['branch'] = $row['branch'];
+            $_SESSION['autherized'] = "fd18481850cc606a9071adc0bc390c62";
             // get user login
             @$user_name = $row['user_name'];
             @$details = json_decode(file_get_contents("http://ipinfo.io/"));
@@ -106,25 +118,33 @@ function isVal()
             @$lat = $coordinates[0]; // latitude
             @$long = $coordinates[1]; // longitude
             @$hostName = gethostname();
-            $_SQL($con, "INSERT INTO spa_login VALUES('$_AUTO_ID','$user_name','$hostName','$address','$lat','$long','$_TIMESTAMP','$_YEAR')");
+            $_select_max_id_for_add_id=$_SQL($con,"SELECT _id FROM spa_login WHERE _id=(SELECT MAX(_id)FROM spa_login)");
+               $result=$_ASSOC($_select_max_id_for_add_id);
+               $max_number=$result['_id'];
+               if($max_number==""){
+                    $id_number=1;
+               }else{ 
+                    $id_number=$max_number+1;
+               }
+            $_SQL($con, "INSERT INTO spa_login VALUES('$id_number','$_AUTO_ID','$user_name','$hostName','$address','$lat','$long','$_TIMESTAMP','$_YEAR')");
             echo "<script>Notiflix.Loading.Standard('ກຳລັງດຳເນີນງານ...');setTimeout(function () {window.location='services/home/'}, 500);</script>";
         } else {
             echo "<script> Notiflix.Report.Failure('ຜິດພາດ','ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ ກະລຸນາລອງໃໝ່ອີກຄັ້ງ !', 'ປິດ',function () {window.location='index.php'});</script>";
         }
     }
     ?>
-    <!-- show password  -->
-    <script>
-    function _view() {
-        const newLocal = "password";
-        var temp = document.getElementById(newLocal);
-        if (temp.type === "password") {
-            temp.type = "text";
-        } else {
-            temp.type = "password";
-        }
-    }
-    </script>
+     <!-- show password  -->
+     <script>
+     function _view() {
+          const newLocal = "password";
+          var temp = document.getElementById(newLocal);
+          if (temp.type === "password") {
+               temp.type = "text";
+          } else {
+               temp.type = "password";
+          }
+     }
+     </script>
 </body>
 
 </html>

@@ -28,11 +28,6 @@
                                    <i class="icon-chevron-down"></i>
                               </a>
                          </li>
-                         <li>
-                              <a href="#">
-                                   <i class="icon-export"></i>
-                              </a>
-                         </li>
                     </ul>
                </div>
                <!-- Main container start -->
@@ -40,193 +35,105 @@
 
                     <!-- Row start -->
                     <div class="row gutters">
-                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                              <div class="info-stats4">
-                                   <div class="info-icon">
-                                        <i class="icon-eye1"></i>
+                         <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12">
+                              <!-- Row starts -->
+                              <div class="row gutters">
+                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="goal-card">
+                                             <i class="icon-user1"></i>
+                                             <h2>2599</h2>
+                                             <h6>Customers</h6>
+                                        </div>
                                    </div>
-                                   <div class="sale-num">
-                                        <h3>9500</h3>
-                                        <p>Visitors</p>
+                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="goal-card">
+                                             <i class="icon-shopping-cart1"></i>
+                                             <h2>4005</h2>
+                                             <h6>Orders</h6>
+                                        </div>
                                    </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                              <div class="info-stats4">
-                                   <div class="info-icon">
-                                        <i class="icon-shopping-cart1"></i>
+                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="goal-card">
+                                             <i class="icon-shopping-bag1"></i>
+                                             <h2>3250</h2>
+                                             <h6>Revenue</h6>
+                                        </div>
                                    </div>
-                                   <div class="sale-num">
-                                        <h3>2500</h3>
-                                        <p>Orders</p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                              <div class="info-stats4">
-                                   <div class="info-icon">
-                                        <i class="icon-shopping-bag1"></i>
-                                   </div>
-                                   <div class="sale-num">
-                                        <h3>7500</h3>
-                                        <p>Sales</p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                              <div class="info-stats4">
-                                   <div class="info-icon">
-                                        <i class="icon-activity"></i>
-                                   </div>
-                                   <div class="sale-num">
-                                        <h3>3500</h3>
-                                        <p>Expenses</p>
+                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="goal-card">
+                                             <i class="icon-file-text"></i>
+                                             <h2>2475</h2>
+                                             <h6>Invoices</h6>
+                                        </div>
                                    </div>
                               </div>
+                              <!-- Row ends -->
                          </div>
-                    </div>
-                    <!-- Row end -->
-
-                    <!-- Row start -->
-                    <div class="row gutters">
-                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="card">
+                         <div class="col-xl-7 col-lg-12 col-md-12 col-sm-12 col-12">
+                              <div class="card h-310">
                                    <div class="card-header">
-                                        <div class="card-title">Visitors</div>
+                                        <div class="card-title">Earnings</div>
                                    </div>
                                    <div class="card-body pt-0">
-                                        <div id="visitors"></div>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-                    <!-- Row end -->
-
-                    <!-- Row start -->
-                    <div class="row gutters">
-                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                              <div class="card">
-                                   <div class="card-header">
-                                        <div class="card-title">Customers</div>
-                                   </div>
-                                   <div class="card-body">
-                                        <div id="customers"></div>
                                         <!-- Row starts -->
                                         <div class="row gutters">
-                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                  <div class="info-stats3 shade-one-a">
-                                                       <i class="icon-opacity"></i>
-                                                       <h6>New</h6>
-                                                       <h3>450</h3>
+                                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
+                                                  <div class="graph-label-container">
+                                                       <div class="graph-label">
+                                                            <i class="icon-controller-play"></i>
+                                                            <div class="label-detail">
+                                                                 <h5>$45,000</h5>
+                                                                 <p>Report GSK</p>
+                                                            </div>
+                                                       </div>
+                                                       <div class="graph-label">
+                                                            <i class="icon-controller-play"></i>
+                                                            <div class="label-detail">
+                                                                 <h5>$60,000</h5>
+                                                                 <p>Report MRS</p>
+                                                            </div>
+                                                       </div>
+                                                       <div class="graph-label">
+                                                            <i class="icon-controller-play"></i>
+                                                            <div class="label-detail">
+                                                                 <h5>$75,000</h5>
+                                                                 <p>Report AGS</p>
+                                                            </div>
+                                                       </div>
+                                                       <div class="graph-label">
+                                                            <i class="icon-controller-play"></i>
+                                                            <div class="label-detail">
+                                                                 <h5>$90,000</h5>
+                                                                 <p>Profit</p>
+                                                            </div>
+                                                       </div>
                                                   </div>
                                              </div>
-                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                  <div class="info-stats3 shade-one-b">
-                                                       <i class="icon-opacity"></i>
-                                                       <h6>Returned</h6>
-                                                       <h3>900</h3>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        <!-- Row end -->
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                              <div class="card">
-                                   <div class="card-header">
-                                        <div class="card-title">Deals</div>
-                                   </div>
-                                   <div class="card-body pt-0 pb-0">
-                                        <div id="deals"></div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="card">
-                                   <div class="card-header">
-                                        <div class="card-title">Logs</div>
-                                   </div>
-                                   <div class="card-body">
-                                        <div class="customScroll5">
-                                             <div class="activity-logs">
-                                                  <div class="activity-log-list">
-                                                       <div class="sts"></div>
-                                                       <div class="log">New item sold</div>
-                                                       <div class="log-time">10:10</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts"></div>
-                                                       <div class="log">Notification from bank</div>
-                                                       <div class="log-time">05:25</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts red"></div>
-                                                       <div class="log">Transaction success alert</div>
-                                                       <div class="log-time">09:45</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts orange"></div>
-                                                       <div class="log">Your item has been updated</div>
-                                                       <div class="log-time">06:50</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts"></div>
-                                                       <div class="log">New fffer</div>
-                                                       <div class="log-time">12:30</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts orange"></div>
-                                                       <div class="log">Item bought</div>
-                                                       <div class="log-time">04:22</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts"></div>
-                                                       <div class="log">New sale: Zyan Ferris</div>
-                                                       <div class="log-time">10:10</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts orange"></div>
-                                                       <div class="log">Order Received</div>
-                                                       <div class="log-time">12:55</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts"></div>
-                                                       <div class="log">Service information</div>
-                                                       <div class="log-time">09:12</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts"></div>
-                                                       <div class="log">Message from Reisnz</div>
-                                                       <div class="log-time">09:27</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts red"></div>
-                                                       <div class="log">New item sale: Ali Sayed</div>
-                                                       <div class="log-time">02:39</div>
-                                                  </div>
-                                                  <div class="activity-log-list">
-                                                       <div class="sts orange"></div>
-                                                       <div class="log">Product update</div>
-                                                       <div class="log-time">08:22</div>
-                                                  </div>
+                                             <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
+                                                  <div id="earnings"></div>
                                              </div>
                                         </div>
+                                        <!-- Row ends -->
                                    </div>
                               </div>
                          </div>
-                    </div>
-                    <!-- Row end -->
-
-                    <!-- Row start -->
-                    <div class="row gutters">
-                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
                               <div class="card">
                                    <div class="card-header">
-                                        <div class="card-title">Overall Income</div>
+                                        <div class="card-title">Sales</div>
                                    </div>
-                                   <div class="card-body pt-0 pb-0">
-                                        <div id="income"></div>
+                                   <div class="card-body pt-0">
+                                        <div id="compare-sales"></div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                              <div class="card">
+                                   <div class="card-header">
+                                        <div class="card-title">Income</div>
+                                   </div>
+                                   <div class="card-body pt-0">
+                                        <div id="compare-expenses"></div>
                                    </div>
                               </div>
                          </div>
@@ -236,113 +143,183 @@
                     <!-- Row start -->
                     <div class="row gutters">
                          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="card">
+                              <div class="card h-340">
                                    <div class="card-header">
-                                        <div class="card-title">Quick Stats</div>
+                                        <div class="card-title">Todo's</div>
                                    </div>
                                    <div class="card-body">
                                         <div class="customScroll5">
-                                             <div class="quick-analytics">
-                                                  <a href="#">
-                                                       <i class="icon-shopping-cart1"></i> 500,000 New Orders
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-shopping-bag1"></i> 950,000 Products
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-package"></i> 325,010 Retail Stores
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-play-circle"></i> 780,500 Movies Downloaded
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-share1"></i> 250,000 Images Uploaded
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-eye1"></i> 870,000 Monthly Visits
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-bell"></i> 350,500 Tickets Booked
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-shopping-cart1"></i> 500,000 New Orders
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-shopping-bag1"></i> 950,000 Products
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-package"></i> 325,010 Retail Stores
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-play-circle"></i> 780,500 Movies Downloaded
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-share1"></i> 250,000 Images Uploaded
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-eye1"></i> 870,000 Monthly Visits
-                                                  </a>
-                                                  <a href="#">
-                                                       <i class="icon-bell"></i> 350,500 Tickets Booked
-                                                  </a>
+                                             <div class="todo-container">
+                                                  <ul class="todo-body">
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot blue"></span>
+                                                                 <p>Team Meeting</p>
+                                                                 <p>Thursday at 3:30 PM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot orange"></span>
+                                                                 <p>Make new page</p>
+                                                                 <p>Wednesday at 10:30 AM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list done">
+                                                            <div class="todo-info">
+                                                                 <span class="dot yellow"></span>
+                                                                 <p>Product launch</p>
+                                                                 <p>Sunday at Baur Lac, Zurich</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list done">
+                                                            <div class="todo-info">
+                                                                 <span class="dot green"></span>
+                                                                 <p>Code Review</p>
+                                                                 <p>Friday at 2:00PM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot blue"></span>
+                                                                 <p>Team Meeting</p>
+                                                                 <p>Thursday at 3:30 PM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot orange"></span>
+                                                                 <p>Make new page</p>
+                                                                 <p>Wednesday at 10:30 AM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot yellow"></span>
+                                                                 <p>Product launch</p>
+                                                                 <p>Sunday at Baur Lac, Zurich</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list done">
+                                                            <div class="todo-info">
+                                                                 <span class="dot green"></span>
+                                                                 <p>Code Review</p>
+                                                                 <p>Friday at 2:00PM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot blue"></span>
+                                                                 <p>Team Meeting</p>
+                                                                 <p>Thursday at 3:30 PM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot orange"></span>
+                                                                 <p>Make new page</p>
+                                                                 <p>Wednesday at 10:30 AM</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list">
+                                                            <div class="todo-info">
+                                                                 <span class="dot yellow"></span>
+                                                                 <p>Product launch</p>
+                                                                 <p>Sunday at Baur Lac, Zurich</p>
+                                                            </div>
+                                                       </li>
+                                                       <li class="todo-list done">
+                                                            <div class="todo-info">
+                                                                 <span class="dot green"></span>
+                                                                 <p>Code Review</p>
+                                                                 <p>Friday at 2:00PM</p>
+                                                            </div>
+                                                       </li>
+                                                  </ul>
                                              </div>
                                         </div>
                                    </div>
                               </div>
                          </div>
                          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="card">
+                              <div class="card h-340">
                                    <div class="card-header">
-                                        <div class="card-title">Activity</div>
+                                        <div class="card-title">Statistics</div>
                                    </div>
                                    <div class="card-body">
                                         <div class="customScroll5">
-                                             <ul class="project-activity">
-                                                  <li class="activity-list">
-                                                       <div class="detail-info">
-                                                            <p class="date">Today</p>
-                                                            <p class="info">Messages accepted with attachments.</p>
-                                                       </div>
+                                             <ul class="statistics">
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-eye1"></i>
+                                                       </span>
+                                                       A new ticket opened.
                                                   </li>
-                                                  <li class="activity-list success">
-                                                       <div class="detail-info">
-                                                            <p class="date">Yesterday</p>
-                                                            <p class="info">Send email notifications of subscriptions
-                                                                 and deletions
-                                                                 to list owner.</p>
-                                                       </div>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-thumbs-up1"></i>
+                                                       </span>
+                                                       That's A great idea!
                                                   </li>
-                                                  <li class="activity-list danger">
-                                                       <div class="detail-info">
-                                                            <p class="date">10th December</p>
-                                                            <p class="info">Required change logs activity reports.</p>
-                                                       </div>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-star2"></i>
+                                                       </span>
+                                                       Tell us what you think.
                                                   </li>
-                                                  <li class="activity-list warning">
-                                                       <div class="detail-info">
-                                                            <p class="date">15th December</p>
-                                                            <p class="info">Strategic partnership plan.</p>
-                                                       </div>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-shopping-bag1"></i>
+                                                       </span>
+                                                       A new item sold.
                                                   </li>
-                                                  <li class="activity-list success">
-                                                       <div class="detail-info">
-                                                            <p class="date">21st December</p>
-                                                            <p class="info">Send email notifications of subscriptions
-                                                                 and deletions
-                                                                 to list owner.</p>
-                                                       </div>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-check-circle"></i>
+                                                       </span>
+                                                       Design approved.
                                                   </li>
-                                                  <li class="activity-list danger">
-                                                       <div class="detail-info">
-                                                            <p class="date">25th December</p>
-                                                            <p class="info">Required change logs activity reports.</p>
-                                                       </div>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-clipboard"></i>
+                                                       </span>
+                                                       Assigned new task to Zyan.
                                                   </li>
-                                                  <li class="activity-list warning">
-                                                       <div class="detail-info">
-                                                            <p class="date">28th December</p>
-                                                            <p class="info">Strategic partnership plan.</p>
-                                                       </div>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-eye1"></i>
+                                                       </span>
+                                                       A new ticket opened.
+                                                  </li>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-thumbs-up1"></i>
+                                                       </span>
+                                                       That's A great idea!
+                                                  </li>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-star2"></i>
+                                                       </span>
+                                                       Tell us what you think.
+                                                  </li>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-shopping-bag1"></i>
+                                                       </span>
+                                                       A new item sold.
+                                                  </li>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-check-circle"></i>
+                                                       </span>
+                                                       Design approved.
+                                                  </li>
+                                                  <li>
+                                                       <span class="stat-icon">
+                                                            <i class="icon-clipboard"></i>
+                                                       </span>
+                                                       Assigned new task to Zyan.
                                                   </li>
                                              </ul>
                                         </div>
@@ -350,67 +327,69 @@
                               </div>
                          </div>
                          <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="card">
+                              <div class="card h-340">
                                    <div class="card-header">
-                                        <div class="card-title">Order History</div>
+                                        <div class="card-title">Top Pages Visited</div>
                                    </div>
                                    <div class="card-body">
                                         <div class="customScroll5">
-                                             <ul class="user-messages">
-                                                  <li class="clearfix">
-                                                       <div class="customer">AM</div>
-                                                       <div class="delivery-details">
-                                                            <span class="badge badge-primary">Ordered</span>
-                                                            <h5>Aaleyah Malik</h5>
-                                                            <p>We are pleased to inform that the following ticket no.
-                                                                 <b>Le
-                                                                      Rouge510</b> have been booked.</p>
-                                                       </div>
+                                             <ul class="recent-links">
+                                                  <li>
+                                                       <a href="#">Bootstrap admin template</a>
                                                   </li>
-                                                  <li class="clearfix">
-                                                       <div class="customer">AS</div>
-                                                       <div class="delivery-details">
-                                                            <span class="badge badge-primary">Delivered</span>
-                                                            <h5>Ali Sayed</h5>
-                                                            <p>The carrier successfully delivered the message to the end
-                                                                 user.</p>
-                                                       </div>
+                                                  <li>
+                                                       <a href="#">Images resources</a>
                                                   </li>
-                                                  <li class="clearfix">
-                                                       <div class="customer">ZR</div>
-                                                       <div class="delivery-details">
-                                                            <span class="badge badge-primary">Cancelled</span>
-                                                            <h5>Zaira Raheem</h5>
-                                                            <p>The following describe the status codes and messages
-                                                                 states for
-                                                                 delivery receipts.</p>
-                                                       </div>
+                                                  <li>
+                                                       <a href="#">Best admin templates 2020</a>
                                                   </li>
-                                                  <li class="clearfix">
-                                                       <div class="customer">LJ</div>
-                                                       <div class="delivery-details">
-                                                            <span class="badge badge-primary">Returned</span>
-                                                            <h5>Lily Jordan</h5>
-                                                            <p>Status codes and descriptions are returned in the
-                                                                 following
-                                                                 OpenMarket-specific TLVs When a delivery receipt is
-                                                                 received.</p>
-                                                       </div>
+                                                  <li>
+                                                       <a href="#">Javascript libraries</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Angular widgets</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">UX library</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Bootstrap admin template</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Images resources</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Best admin templates 2020</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Javascript libraries</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Angular widgets</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">UX library</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Bootstrap admin template</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Images resources</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Best admin templates 2020</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Javascript libraries</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">Angular widgets</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">UX library</a>
                                                   </li>
                                              </ul>
                                         </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="card lobipanel-custom">
-                                   <div class="card-header">
-                                        <div class="card-title">Custom options</div>
-                                   </div>
-                                   <div class="card-body">
-                                        <p>LobiPanel is jquery plugin for bootstrap panels. It extends panels with
-                                             several common and useful functions which does not come by default. Sort,
-                                             drag, expand, resize, minimize bootstrap panels.</p>
                                    </div>
                               </div>
                          </div>

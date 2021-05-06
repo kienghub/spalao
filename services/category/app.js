@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ["datatables"]);
 app.controller("controller", function ($scope, $http) {
   $scope.btnName = "ບັນທຶກ";
   $scope.form_title = "ເພີ່ມປະເພດຄອສ໌";
@@ -36,12 +36,10 @@ app.controller("controller", function ($scope, $http) {
           btnName: $scope.btnName
         })
         .success(function (output) {
-          // var arr=output.split(',')
-          // var _catch=arr[0]
-          // var id=arr[1];
+          console.log(output);
           if (output == "DATA_READY_EXIT") {
             _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີຢູ່ແລ້ວ");
-          } else if (output == 7070) {
+          } else if (output == 200) {
             _Success();
             $scope.cate_id = null;
             $scope.cate_title = null;
@@ -82,7 +80,7 @@ app.controller("controller", function ($scope, $http) {
             cate_id: id
           })
           .success(function (data) {
-            if (data == 7070) {
+            if (data == 200) {
               _Success();
               $scope._callCategory();
             } else {

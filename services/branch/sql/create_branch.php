@@ -6,20 +6,17 @@ if ($x > 0) {
    @$branch_name_l = $_SUBSTRING($con, $info->branch_name_l);
    @$branch_name_e = $_SUBSTRING($con, $info->branch_name_e);
     $btnName = $info->btnName;
-// INSERT DATA
-$select_max_id=$_SQL($con, "SELECT _id FROM spa_branch WHERE _id=(SELECT MAX(_id)FROM spa_branch)");
-    $get_result=$_ASSOC($select_max_id);
-    $max_id=$get_result['_id'];
-    if($max_id<1){
-        $id=1;
-        $branch_code=$_GEN_ID+$id;
-    }else{
-        $id=$max_id+1;
-        $branch_code=$_GEN_ID+$id;
+    // INSERT DATA
+    $_select_max_id_for_add_id=$_SQL($con,"SELECT _id FROM spa_branch WHERE _id=(SELECT MAX(_id)FROM spa_branch)");
+    $result=$_ASSOC($_select_max_id_for_add_id);
+    $max_number=$result['_id'];
+    if($max_number==""){
+        $id_number=1;
+    }else{ 
+        $id_number=$max_number+1;
     }
-
     if ($btnName == "ບັນທຶກ") {
-    $data = "'$id','$_AUTO_ID','$branch_name_l','$branch_name_e','$_TIMESTAMP','$_USER_ID'";
+    $data = "'$id_number','$_AUTO_ID','$branch_name_l','$branch_name_e','$_TIMESTAMP','$_USER_ID'";
     $_queryBranch = $_SQL($con, "SELECT branch_name_l,branch_name_e FROM spa_branch WHERE branch_name_l='$branch_name_l' AND branch_name_e='$branch_name_e'");
     $_catch = $_COUNT($_queryBranch);
     if ($_catch > 1) {
@@ -27,9 +24,9 @@ $select_max_id=$_SQL($con, "SELECT _id FROM spa_branch WHERE _id=(SELECT MAX(_id
     } else {
         $_createBranch = $_SQL($con, "INSERT INTO spa_branch VALUE($data)");
         if ($_createBranch) {
-            echo 7070;
+            echo 200;
         } else {
-            echo 4466;
+            echo 400;
         }
     } 
 }else {
@@ -37,10 +34,11 @@ $select_max_id=$_SQL($con, "SELECT _id FROM spa_branch WHERE _id=(SELECT MAX(_id
     $_newData = "branch_name_l='$branch_name_l',branch_name_e='$branch_name_e',branch_createdAt='$_TIMESTAMP',branch_createdBy='$_USER_ID'";
     $_updateBranch = $_SQL($con, "UPDATE spa_branch SET $_newData WHERE branch_id='$id'");
     if ($_updateBranch) {
-        echo 7070;
+        echo 200;
     } else {
-        echo 4466;
+        echo 400;
     }
 }
 }
+mysqli_close($con);
 ?>

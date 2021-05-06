@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ["datatables"]);
 app.controller("controller", function ($scope, $http) {
   $scope.btnName = "ບັນທຶກ";
   $scope.titles = "ເພີ່ມຂໍ້ມູນສາຂາ";
@@ -40,7 +40,7 @@ app.controller("controller", function ($scope, $http) {
           console.log(output);
           if (output == "DATA_READY_EXIT") {
             _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີຢູ່ແລ້ວ");
-          } else if (output == 7070) {
+          } else if (output == 200) {
             _Success();
             $scope.branch_id = null;
             $scope.branch_name_l = null;
@@ -82,7 +82,7 @@ app.controller("controller", function ($scope, $http) {
         $http
           .post("sql/delete_branch.php", { id: id })
           .success(function (data) {
-            if (data == 7070) {
+            if (data == 200) {
               _Success();
               $scope._callBranch();
             } else {

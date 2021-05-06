@@ -60,7 +60,9 @@
                                                             <label for="file-5">
                                                                  <img src="../../img/user_null.png" id="preview"
                                                                       style="width:150px;height:150px;margin-bottom:15px" />
-                                                                 <span class="btn btn-success btn-block">ເລືອກຮູບ</span>
+                                                                 <span class="btn btn-success btn-block btn-sm">
+                                                                      <i class="icon-link1"></i>
+                                                                      ເລືອກຮູບ</span>
                                                             </label>
                                                        </div>
                                                   </div>

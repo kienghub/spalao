@@ -35,7 +35,7 @@ app.controller("controller", function ($scope, $http) {
         $http
           .post("sql/delete_history.php", { id: id })
           .success(function (data) {
-            if (data == 7070) {
+            if (data == 200) {
               _Success();
               $scope._callData();
             } else {

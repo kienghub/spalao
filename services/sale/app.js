@@ -45,7 +45,7 @@ app.controller("controller", function ($scope, $http) {
         $http
           .post("sql/delete_history.php", { id: id })
           .success(function (data) {
-            if (data == 7070) {
+            if (data == 200) {
               _Success();
               $scope._callData();
             } else {
@@ -57,5 +57,29 @@ app.controller("controller", function ($scope, $http) {
         $scope._callData();
       }
     );
+  };
+
+  $scope.layer_show = function (title, url, w, h, id) {
+    if (title == null || title == "") {
+      title = false;
+    }
+    if (url == null || url == "") {
+      url = "http://localhost/spalao/services/users/user-profile.php?id=" + id;
+    }
+    if (w == null || w == "") {
+      w = 800;
+    }
+    if (h == null || h == "") {
+      h = $(window).height() - 50;
+    }
+    layer.open({
+      type: 2,
+      area: [w + "px", h + "px"],
+      fix: true,
+      maxmin: true,
+      shade: 0.4,
+      title: title,
+      content: url
+    });
   };
 });

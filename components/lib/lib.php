@@ -15,13 +15,13 @@ $_profile=$_ASSOC($_callProfileSystem);
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Meta -->
-<meta name="description" content="spa">
-<meta name="author" content="kieng">
+<meta name="description" content="laopayook">
+<meta name="author" content="laopayook">
 <link rel="shortcut icon"
      href="../../img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>" />
 
 <!-- Title -->
-<title>SPA</title>
+<title>laopayook</title>
 
 <!-- Bootstrap css -->
 <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
@@ -34,14 +34,28 @@ $_profile=$_ASSOC($_callProfileSystem);
 <!-- DateRange css -->
 <link rel="stylesheet" href="../../assets/vendor/daterange/daterange.css" />
 <!-- Data Tables -->
-<link rel="stylesheet" href="../../assets/vendor/datatables/dataTables.bs4.css" />
-<link rel="stylesheet" href="../../assets/vendor/datatables/dataTables.bs4-custom.css" />
+<link rel="stylesheet" href="../../assets/data-table/dataTables.bootstrap4.min.css" />
 <link href="../../assets/vendor/datatables/buttons.bs.css" rel="stylesheet" />
 <link href="../../assets/select2/dist/css/select2.min.css" rel="stylesheet" />
 <link href="../../assets/darkbox/darkbox.css" rel="stylesheet" />
 <link href="../../assets/css/scroll_menu.css" rel="stylesheet" />
 <!-- Lobipanel css -->
 <link rel="stylesheet" href="../../assets/vendor/lobipanel/css/lobipanel.css" />
+<style>
+a,
+label,
+span,
+div,
+.form-control,
+.btn,
+.breadcrumb-item,
+.table,
+th,
+td {
+     font-size: 16px !important;
+     font-weight: normal !important;
+}
+</style>
 <?php
 // ໄວ້ສະແດງຂໍ້ມູນ
 function _renderGenderShow($e)

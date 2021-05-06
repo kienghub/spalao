@@ -8,7 +8,7 @@
      <?php _active('.settings') ?>
 </head>
 
-<body ng-app="app" ng-controller="controller" ng-init="_callBranch();_limitTo='20'">
+<body ng-app="app" ng-controller="controller" ng-init="_callBranch();">
      <!-- Page wrapper start -->
      <div class="page-wrapper pinned">
           <?php include('../../components/layout/side-bar.php') ?>
@@ -21,21 +21,6 @@
                          <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການຂໍ້ມູນ</li>
                          <li class="breadcrumb-item active">ຈັດການສາຂາ</li>
                     </ol>
-
-                    <ul class="app-actions">
-                         <li>
-                              <a href="#" id="reportrange">
-                                   <?php echo $_DATE_FORMAT ?> <div id="MyClockDisplay" class="clock"
-                                        onload="showTime()">
-                                   </div>
-                              </a>
-                         </li>
-                         <li>
-                              <a href="../settings/">
-                                   <i class="icon-forward"></i>
-                              </a>
-                         </li>
-                    </ul>
                </div>
                <!-- Page header end -->
                <!-- Main container start -->
@@ -67,19 +52,23 @@
                          </div>
                          <div class="col-md-9">
                               <div class="table-container">
-                                   <h4 class="t-header"><i class="icon-list"></i> ລາຍການສາຂາທັງໝົດ <?php _limit();?>
+                                   <h4 class="t-header"><i class="icon-list"></i> ລາຍການສາຂາທັງໝົດ
                                    </h4>
                                    <div class="table-responsive">
-                                        <table id="data" class="table custom-table table-sm">
-                                             <tr>
-                                                  <th class="text-center" width='90'>#</th>
-                                                  <th class="text-center">ສາຂາ(ລາວ)</th>
-                                                  <th class="text-center">ສາຂາ(ອັງກິດ)</th>
-                                                  <th class="text-center">ວັນທີສ້າງ</th>
-                                                  <th class="text-center">ສ້າງໂດຍ</th>
-                                                  <th class="text-center"></th>
-                                             </tr>
-                                             <tr id="row" ng-repeat="x in _branchs | filter:_filter | limitTo:_limitTo">
+                                        <table datatable="ng" dt-option='vm.dtOption'
+                                             class="table custom-table table-sm">
+                                             <thead>
+                                                  <tr>
+                                                       <th class="text-center" width='90'>#</th>
+                                                       <th class="text-center">ສາຂາ(ລາວ)</th>
+                                                       <th class="text-center">ສາຂາ(ອັງກິດ)</th>
+                                                       <th class="text-center">ວັນທີສ້າງ</th>
+                                                       <th class="text-center">ສ້າງໂດຍ</th>
+                                                       <th class="text-center"></th>
+                                                  </tr>
+                                             </thead>
+                                             </tbody>
+                                             <tr id="row" ng-repeat="x in _branchs | filter:_filter">
                                                   <td class="text-center" ng-bind="$index+1"></td>
                                                   <td ng-bind='x.branch_name_l'></td>
                                                   <td ng-bind='x.branch_name_e'></td>
@@ -96,14 +85,13 @@
                                                        </div>
                                                   </td>
                                              </tr>
+                                             </tbody>
                                         </table>
-                                        <?php _length() ?>
                                    </div>
                               </div>
                          </div>
                     </div>
                     <!-- Row start -->
-
                     <!-- Row end -->
                </div>
                <!-- Row end -->

@@ -16,17 +16,23 @@
         $resultRate->execute();
         $_row=$resultRate->fetch();
         // CHECK STOCK
-        $selectRate ="SELECT * FROM spa_rate ORDER BY rate_id DESC LIMIT 1";
+        function renderBranch($x){
+        include('../../connection.php');
+        $selectBranch =$_SQL($con,"SELECT * FROM spa_branch WHERE branch_id='$x'");
+        $bres=$_ASSOC($selectBranch);
+        echo $bres['branch_name_l'];
+        mysqli_close($con);
+        }
         ?>
      <div class="header-items" <?php echo @$_isHide ?>>
-          <strong style="color:coral"> ອັດຕາແລກປ່ຽນວັນນີ້ </strong>
+          <strong style="color:#3b4252"> <?php renderBranch($_BRANCH)?> </strong>
      </div>
      <div class="header-items" <?php echo @$_isHide ?>>
-          <a href="../../services/rate/"><strong style="color:coral"> ບາດ(THB):
+          <a href="../../services/rate/"><strong style="color:#3b4252"> ບາດ(THB):
                     <?php echo @number_format($_row['rate_THB'])?> </strong></a>
      </div>
      <div class="header-items" <?php echo @$_isHide ?>>
-          <a href="../../services/rate/"><strong style="color:coral"> ໂດລາ(USD):
+          <a href="../../services/rate/"><strong style="color:#3b4252"> ໂດລາ(USD):
                     <?php echo @number_format($_row['rate_USD'])?></strong> </a>
      </div>
      <div class="header-items">
@@ -115,9 +121,9 @@
                               <a href="../../services/users/user-profile.php?id=<?php echo $_USER_ID?>"><i
                                         class="icon-user1"></i> ໂປຣໄຟລ໌</a>
                               <a href="../../services/change_password/"><i class="fa fa-key"></i> ປ່ຽນລະຫັດຜ່ານ</a>
-                              <a href="../../services/loginhistory/?years=<?php echo $_YEAR ?>"><i
-                                        class="fa fa-history"></i>
-                                   ປະຫວັດການເຂົ້າລະບົບ</a>
+                              <a href="../../services/loginhistory/?years=<?php echo $_YEAR ?>">
+                                   <i class="fa fa-history"></i>
+                                   ການເຂົ້າລະບົບ</a>
                               <a href="../../services/profilesystem/"><i class="fa fa-cog"></i> ຂໍ້ມູນສຳນັກງານ</a>
                               <a href="#" onclick="_logout()"><i class="icon-log-out1"></i> ອອກຈາກລະບົບ</a>
                          </div>

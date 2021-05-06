@@ -8,7 +8,7 @@ if($x > 0) {
     if (mysqli_query($con, $query)) {
         echo 3000;
     } else {
-        echo 7070;
+        echo 200;
     }
 }
 ?>

@@ -19,7 +19,7 @@ if ($x > 0) {
             if($newData){
                 echo 3000;
             }else {
-                echo 7070;
+                echo 200;
             }
         }
     }else {
@@ -29,7 +29,7 @@ if ($x > 0) {
         if ($_update) {
             echo 3000;
         }else {
-            echo 7070;
+            echo 200;
         }
     }
 }

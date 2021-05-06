@@ -27,7 +27,7 @@ try {
 @$_USER_CREATEDAT=$_SESSION['user_createdAt'];
 @$_USER_CREATEDBY=$_SESSION['user_createdBy'];
 @$_USER_IMG=$_SESSION['user_img'];
-@$_BRANCH=$_SESSION['user_branch'];
+@$_BRANCH=$_SESSION['branch'];
 
 // CHECK PERMISSION
 // quick function 

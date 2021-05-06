@@ -5,7 +5,7 @@
           <a href="../../services/home/" class="logo" style="margin-left:-5px">
                <img src="../../img/../img/<?php if($_profile['p_logo']){echo $_profile['p_logo'];}else{echo 'app-logo.png';}?>"
                     alt="">
-               &nbsp;&nbsp;<h2 class="mt-2 text-white">S<span style="color:yellow">PA</span></h2>
+               &nbsp;&nbsp;<h4 class="mt-2 text-white">LAOPAYOOK</span></h2>
           </a>
      </div>
      <!-- Sidebar brand end  -->
@@ -23,7 +23,7 @@
 
                     <li class="sale">
                          <a href="../../services/sale/">
-                              <i class="icon-airplay"></i>
+                              <i class="icon-shopping-cart1"></i>
                               <span class="menu-text">ໜ້າຂາຍ</span>
                          </a>
                     </li>

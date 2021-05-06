@@ -6,9 +6,10 @@ if($x > 0) {
     $id    = $data->pro_id;
     $query = "DELETE FROM spa_product WHERE pro_id='$id'";
     if (mysqli_query($con, $query)) {
-        echo 7070;
+        echo 200;
     } else {
-        echo 4466;
+        echo 400;
     }
 }
+mysqli_close($con);
 ?>

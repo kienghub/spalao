@@ -63,7 +63,7 @@ $("#onSubmitResivce").on("submit", function (event) {
         console.log({ data });
         if (data == "DATA_READY_EXIT") {
           _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີໃນຖານຂໍ້ມູນແລ້ວ");
-        } else if (data == 7070) {
+        } else if (data == 200) {
           _Success();
           setTimeout(function () {
             window.location.reload();
@@ -105,7 +105,7 @@ $("#onSubmitBroked").on("submit", function (event) {
         console.log(data);
         if (data == "DATA_READY_EXIT") {
           _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີໃນຖານຂໍ້ມູນແລ້ວ");
-        } else if (data == 7070) {
+        } else if (data == 200) {
           _Success();
           setTimeout(function () {
             window.location.reload();
@@ -148,7 +148,7 @@ $("#onSubmitBringOut").on("submit", function (event) {
         console.log({ data });
         if (data == "DATA_READY_EXIT") {
           _Warning("ຂໍ້ມູນທີ່ທ່ານປ້ອນມີໃນຖານຂໍ້ມູນແລ້ວ");
-        } else if (data == 7070) {
+        } else if (data == 200) {
           _Success();
           setTimeout(function () {
             window.location.reload();

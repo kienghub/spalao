@@ -20,8 +20,8 @@ include('../../../connection.php');
         $_creatbroked = $_SQL($con, "INSERT INTO spa_broked VALUE($data)");
         if ($_creatbroked) {
             $_SQL($con,"UPDATE spa_estock SET est_qty=est_qty-'$bk_qty' WHERE est_equiment='$bk_equiment_id'");
-            echo 7070;
+            echo 200;
         } else {
-            echo 4466;
+            echo 400;
         }
     }

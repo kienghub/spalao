@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ["datatables"]);
 app.controller("controller", function ($scope, $http) {
   $scope.btnName = "ບັນທຶກ";
   $scope.form_title = "ເພີ່ມປະເພດອຸປະກອນ";

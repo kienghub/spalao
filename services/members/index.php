@@ -86,7 +86,7 @@
                                                        <i class="icon-trash"></i>
                                                   </a>
                                                   <img src="../../img/user_null.png" alt="user" class="profile"
-                                                       style="border:2px solid green;width:72px;height:72px;">
+                                                       style="width:72px;height:72px;">
                                                   <h5 ng-bind="x.mb_fullName">...</h5>
                                                   <ul class="list-group">
                                                        <li class="list-group-item" ng-bind="x.mb_phoneNumber">...</li>

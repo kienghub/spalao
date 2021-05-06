@@ -6,9 +6,9 @@ if($x > 0) {
     $id    = $data->id;
     $query = "DELETE FROM spa_login WHERE login_id='$id'";
     if (mysqli_query($con, $query)) {
-        echo 7070;
+        echo 200;
     } else {
-        echo 4466;
+        echo 400;
     }
 }
 ?>

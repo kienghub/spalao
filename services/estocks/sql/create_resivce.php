@@ -22,8 +22,8 @@ include('../../../connection.php');
         if ($_createResivce) {
             $_SQL($con,"UPDATE spa_estock SET est_qty=est_qty+'$ere_qty' WHERE est_equiment='$ere_equiment_id'");
             $_SQL($con,"UPDATE spa_equiment SET e_Bprice='$ere_Bprice' WHERE e_id='$ere_equiment_id'");
-            echo 7070;
+            echo 200;
         } else {
-            echo 4466;
+            echo 400;
         }
     }
