@@ -89,7 +89,7 @@ function isVal()
      <?php 
       if (isset($_POST['onLogin'])) {
         @session_start();
-        @$username = $_SUBSTRING($con, $_POST['user_name']);
+        @$username = $_SETSTRING($con, $_POST['user_name']);
         @$password = md5($_POST['user_password']);
         $_DATA_USERS = mysqli_query($con, "SELECT * FROM spa_users WHERE user_name='$username' AND user_password='$password' AND user_status='true' OR user_tel='$username'");
         $count = mysqli_num_rows($_DATA_USERS);

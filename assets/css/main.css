@@ -3230,6 +3230,7 @@ figure.user-card .list-group {
 
 .chat-search-box .input-group .form-control:focus {
   border-right: 0;
+  border: 1px solid red !important;
 }
 
 .chat-search-box .input-group .input-group-btn .btn {
@@ -7927,7 +7928,7 @@ button:focus {
 }
 
 .form-control:focus {
-  border-color: #485167;
+  border-color: red;
   box-shadow: none;
 }
 

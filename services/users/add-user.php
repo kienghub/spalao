@@ -164,15 +164,15 @@
      <?php 
 require_once('../../connection.php');
 if(isset($_POST['_handleSubmit'])){
-    $user_fname=$_SUBSTRING($con,$_POST['user_fname']);
-    $user_lname=$_SUBSTRING($con,$_POST['user_lname']);
-    $user_gender=$_SUBSTRING($con,$_POST['user_gender']);
-    $user_address=$_SUBSTRING($con,$_POST['user_address']);
-    $user_tel=$_SUBSTRING($con,$_POST['user_tel']);
-    $user_name=$_SUBSTRING($con,$_POST['user_name']);
+    $user_fname=$_SETSTRING($con,$_POST['user_fname']);
+    $user_lname=$_SETSTRING($con,$_POST['user_lname']);
+    $user_gender=$_SETSTRING($con,$_POST['user_gender']);
+    $user_address=$_SETSTRING($con,$_POST['user_address']);
+    $user_tel=$_SETSTRING($con,$_POST['user_tel']);
+    $user_name=$_SETSTRING($con,$_POST['user_name']);
     $user_password=md5($con,$_POST['user_password']);
-    $user_role=$_SUBSTRING($con,$_POST['user_role']);
-    $branch=$_SUBSTRING($con,$_POST['branch']);
+    $user_role=$_SETSTRING($con,$_POST['user_role']);
+    $branch=$_SETSTRING($con,$_POST['branch']);
 
     @$file_img    = $_FILES['user_img']['name'];
     @$tmp_dir    = $_FILES['user_img']['tmp_name'];

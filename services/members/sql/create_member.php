@@ -3,10 +3,10 @@ include ('../../../connection.php');
 $info = json_decode(file_get_contents("php://input"));
 @$x=count($info);
 if ($x > 0) {
-    @$mb_fullName = $_SUBSTRING($con, $info->mb_fullName);
-    @$mb_phoneNumber =$_SUBSTRING($con, $info->mb_phoneNumber);
-    @$mb_address = $_SUBSTRING($con, $info->mb_address);
-    @$mb_note = $_SUBSTRING($con, $info->mb_note);
+    @$mb_fullName = $_SETSTRING($con, $info->mb_fullName);
+    @$mb_phoneNumber =$_SETSTRING($con, $info->mb_phoneNumber);
+    @$mb_address = $_SETSTRING($con, $info->mb_address);
+    @$mb_note = $_SETSTRING($con, $info->mb_note);
     $btnName = $info->btnName;
 // INSERT DATA
 $select_max_id=$_SQL($con, "SELECT _id FROM spa_member WHERE _id=(SELECT MAX(_id)FROM spa_member)");

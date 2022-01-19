@@ -28,6 +28,7 @@ app.controller("member", function ($scope, $http) {
   $scope._onSave = function () {
     if ($scope.mb_fullName == null) {
       _Warning("ກະລຸນາປ້ອນຊື່ ແລະ ນາມສະກຸນກ່ອນ");
+      $('[ng-model="mb_fullName"]').focus();
     } else if ($scope.mb_phoneNumber == null) {
       _Warning("ກະລຸນາປ້ອນເບີໂທກ່ອນ");
     } else if ($scope.mb_address == null) {

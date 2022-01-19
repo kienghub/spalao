@@ -52,10 +52,13 @@
                                              placeholder="ກະລຸນາປ້ອນໝາຍເຫດ"></textarea>
                                    </div>
                                    <div class="form-group">
-                                        <button type="button" ng-click="_onSave()" class="btn btn-outline-primary"><i
-                                                  class="fa fa-check-circle"></i> <span ng-bind='btnName'"></span></button>
-                                    <button type=" button" ng-click="_clear()" class="btn btn-outline-danger"><i
-                                                       class="fa fa-times-circle"></i> ຍົກເລີກ</button>
+                                        <button type="button" ng-click="_onSave()" class="btn btn-outline-primary">
+                                             <i class="fa fa-check-circle"></i>
+                                             <span ng-bind='btnName'"></span>
+                                        </button>
+                                    <button type=" button" ng-click="_clear()" class="btn btn-outline-danger">
+                                                  <i class="fa fa-times-circle"></i> ຍົກເລີກ
+                                        </button>
                                    </div>
                               </div>
                          </div>

@@ -33,14 +33,20 @@ $_profile=$_ASSOC($_callProfileSystem);
 <link rel="stylesheet" href="../../assets/css/main.css">
 <!-- DateRange css -->
 <link rel="stylesheet" href="../../assets/vendor/daterange/daterange.css" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <!-- Data Tables -->
 <link rel="stylesheet" href="../../assets/data-table/dataTables.bootstrap4.min.css" />
 <link href="../../assets/vendor/datatables/buttons.bs.css" rel="stylesheet" />
 <link href="../../assets/select2/dist/css/select2.min.css" rel="stylesheet" />
 <link href="../../assets/darkbox/darkbox.css" rel="stylesheet" />
+
 <link href="../../assets/css/scroll_menu.css" rel="stylesheet" />
+<link href="../../assets/live-search/bootstrap-select.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <!-- Lobipanel css -->
 <link rel="stylesheet" href="../../assets/vendor/lobipanel/css/lobipanel.css" />
+<link rel="stylesheet" href="../../assets/datepicker/css/datepicker.css" />
 <style>
 a,
 label,
@@ -51,9 +57,25 @@ div,
 .breadcrumb-item,
 .table,
 th,
-td {
+td button {
      font-size: 16px !important;
      font-weight: normal !important;
+}
+
+.w-45 {
+     display: inline-block;
+     width: 45% !important;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+}
+
+.blog,
+.btn,
+.card,
+.form-control,
+.ng-pristine {
+     border-radius: 0px !important;
 }
 </style>
 <?php

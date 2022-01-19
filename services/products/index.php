@@ -29,7 +29,10 @@
                          <div class="col-md-3 col-12">
                               <div class="blog p-3">
                                    <form action="#" id="insert_data" method="post" enctype="multipart/form-data">
-                                        <h4><i class="fa fa-align-left"></i> <span ng-bind="form_title"></span></h4>
+                                        <h4>
+                                             <i class="fa fa-align-left"></i>
+                                             <span ng-bind="form_title"></span>
+                                        </h4>
                                         <hr>
                                         <div class="form-group">
                                              <div class="user-profile text-center">
@@ -46,7 +49,8 @@
                                                                       style="width:150px;height:130px;margin-bottom:15px" />
                                                                  <span class="btn btn-success btn-block btn-sm">
                                                                       <i class="icon-link1"></i>
-                                                                      ເລືອກຮູບ</span>
+                                                                      ເລືອກຮູບ
+                                                                 </span>
                                                             </label>
                                                        </div>
                                                   </div>
@@ -69,22 +73,6 @@
                                                   style="display:none">
                                              <input type="text" class="form-control" name="pro_title"
                                                   ng-model="pro_title" id="pro_title" placeholder="ກະລຸນາປ້ອນຊື່ຄອສ໌">
-                                        </div>
-                                        <div class="form-group">
-                                             <label for="">ລາຄາ/ຄອສ໌ <?php isVal()?></label>
-                                             <input type="text" class="form-control text-right"
-                                                  ng-model="price_for_course" id="price_for_course"
-                                                  name="price_for_course" placeholder="00">
-                                        </div>
-                                        <div class="form-group">
-                                             <label for="">ຈຳນວນຄັ້ງ/ຄອສ໌ <?php isVal()?></label>
-                                             <input type="text" class="form-control text-right" name="pro_qty"
-                                                  id="pro_qty" ng-model="pro_qty" placeholder="0">
-                                        </div>
-                                        <div class="form-group">
-                                             <label for="">ລາຄາ/ຄັ້ງ <?php isVal()?></label>
-                                             <input type="text" class="form-control  text-right" id="price_for_time"
-                                                  name="price_for_time" ng-model="price_for_time" placeholder="00">
                                         </div>
                                         <div class="form-group">
                                              <label for="">ໝາຍເຫດ</label>
@@ -114,9 +102,6 @@
                                                   <tr>
                                                        <th>#</th>
                                                        <th>ລາຍການ</th>
-                                                       <th>ລາຄາ/ຄອສ໌</th>
-                                                       <th>ຈຳນວນຄັ້ງ/ຄອສ໌</th>
-                                                       <th>ລາຄາ/ຄັ້ງ</th>
                                                        <th>ໝາຍເຫດ</th>
                                                        <th>ລົງວັນທີ</th>
                                                        <th>ລົງໂດຍ</th>
@@ -128,10 +113,6 @@
                                                        style="cursor:pointer">
                                                        <td ng-bind='$index+1'></td>
                                                        <td ng-bind='x.pro_title'></td>
-                                                       <td class="text-right" ng-bind='x.price_for_course | number'>
-                                                       </td>
-                                                       <td class="text-right" ng-bind='x.pro_qty | number'></td>
-                                                       <td class="text-right" ng-bind='x.price_for_time | number'></td>
                                                        <td ng-bind='x.pro_note'></td>
                                                        <td ng-bind='x.pro_createdAt'></td>
                                                        <td ng-bind='x.user_fname'></td>
@@ -162,36 +143,7 @@
      <!-- Page wrapper end -->
      <?php include('../../components/lib/script.php')?>
      <script src="app.js"></script>
-     <script>
-     $("#price_for_course,#pro_qty,#price_for_time").on("keyup click change paste input", function(event) {
-          $(this).val(function(index, value) {
-               if (value != "") {
-                    //return '$' + value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    var decimalCount;
-                    value.match(/\./g) === null ?
-                         (decimalCount = 0) :
-                         (decimalCount = value.match(/\./g));
 
-                    if (decimalCount.length > 1) {
-                         value = value.slice(0, -1);
-                    }
-
-                    var components = value.toString().split(".");
-                    if (components.length === 1) components[0] = value;
-                    components[0] = components[0]
-                         .replace(/\D/g, "")
-                         .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    if (components.length === 2) {
-                         components[1] = components[1].replace(/\D/g, "").replace(/^\d{3}$/,
-                              "");
-                    }
-
-                    if (components.join(".") != "") return components.join(".");
-                    else return "";
-               }
-          });
-     });
-     </script>
 </body>
 
 </html>

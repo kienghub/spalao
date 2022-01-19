@@ -44,12 +44,6 @@ app.controller("controller", function ($scope, $http) {
           _Warning("ກະລຸນາເລືອກປະເພດຄອສ໌ກ່ອນ");
         } else if (data == "PRO_TITLE_INVALID") {
           _Warning("ກະລຸນາປ້ອ່ນຊື່ຄອສ໌ກ່ອນ");
-        } else if (data == "PRICE_FOR_COURSE_INVALID") {
-          _Warning("ກະລຸນາປ້ອນລາຄາ/ຄອສ໌ກ່ອນ");
-        } else if (data == "PRO_QTY_INVALID") {
-          _Warning("ກະລຸນາປ້ອນຈຳນວນກ່ອນ");
-        } else if (data == "PRICE_FOR_TIME_INVALID") {
-          _Warning("ກະລຸນາລາຄາ/ຄັ້ງກ່ອນ");
         } else if (data == 200) {
           _Success();
           $scope._callProducts();

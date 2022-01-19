@@ -3,8 +3,8 @@ include ('../../../connection.php');
 $info = json_decode(file_get_contents("php://input"));
 @$x=count($info);
 if ($x > 0) {
-   @$etype_name_l = $_SUBSTRING($con, $info->etype_name_l);
-   @$etype_name_e = $_SUBSTRING($con, $info->etype_name_e);
+   @$etype_name_l = $_SETSTRING($con, $info->etype_name_l);
+   @$etype_name_e = $_SETSTRING($con, $info->etype_name_e);
     $btnName = $info->btnName;
 
 // INSERT DATA

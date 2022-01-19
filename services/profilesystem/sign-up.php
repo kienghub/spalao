@@ -121,11 +121,11 @@
     require_once('../../connection.php');
     if(isset($_POST['_handleSubmit'])){
         $id=$_POST['p_id'];
-        $p_title=$_SUBSTRING($con,$_POST['p_title']);
-        $p_contact1=$_SUBSTRING($con,$_POST['p_contact1']);
-        $p_contact2=$_SUBSTRING($con,$_POST['p_contact2']);
-        $p_contact3=$_SUBSTRING($con,$_POST['p_contact3']);
-        $p_detail=$_SUBSTRING($con,$_POST['p_detail']);
+        $p_title=$_SETSTRING($con,$_POST['p_title']);
+        $p_contact1=$_SETSTRING($con,$_POST['p_contact1']);
+        $p_contact2=$_SETSTRING($con,$_POST['p_contact2']);
+        $p_contact3=$_SETSTRING($con,$_POST['p_contact3']);
+        $p_detail=$_SETSTRING($con,$_POST['p_detail']);
 
         @$file_img    = $_FILES['p_logo']['name'];
         @$tmp_dir    = $_FILES['p_logo']['tmp_name'];

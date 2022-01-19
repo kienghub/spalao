@@ -33,6 +33,44 @@
                               <span class="menu-text">ຈັດການສະມາຊິກ</span>
                          </a>
                     </li>
+                    <li class="sidebar-dropdown">
+                         <a href="#" class="">
+                              <i class="icon-filter_frames"></i>
+                              <span class="menu-text">ຈັດການຕົວຢາ</span>
+                         </a>
+                         <div class="sidebar-submenu">
+                              <ul>
+                                   <li>
+                                        <a href="../../services/package/">ປະເພດຕົວຢາ</a>
+                                   </li>
+                                   <li>
+                                        <a href="../../services/add_package/">ຈັດການຕົວຢາ</a>
+                                   </li>
+                                   <li>
+                                        <a href="../../services/stock_package/">ເພີ່ມຕົວຈຳນວນຕົວຢາ</a>
+                                   </li>
+                              </ul>
+                         </div>
+                    </li>
+                    <li class="sidebar-dropdown">
+                         <a href="#" class="package">
+                              <i class="icon-package"></i>
+                              <span class="menu-text">ຈັດການແພັກເກັດ</span>
+                         </a>
+                         <div class="sidebar-submenu">
+                              <ul>
+                                   <li>
+                                        <a href="../../services/package/">ສ້າງແພັກເກັດ</a>
+                                   </li>
+                                   <li>
+                                        <a href="../../services/add_package/">ເພີ່ມແພັກເກັດ</a>
+                                   </li>
+                                   <li>
+                                        <a href="../../services/stock_package/">ລາຍງານແພັກເກັດ</a>
+                                   </li>
+                              </ul>
+                         </div>
+                    </li>
                     <li class="apointment">
                          <a href="../../services/sale/">
                               <i class="icon-edit1"></i>

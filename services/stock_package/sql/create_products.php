@@ -1,8 +1,10 @@
 <?php 
 include ('../../../connection.php');
-    $pro_cate_id =mysqli_real_escape_string($con,$_POST['pro_cate_id']);
-    $pro_title =mysqli_real_escape_string($con,$_POST['pro_title']);
-    $pro_note =mysqli_real_escape_string($con,$_POST['pro_note']);
+    $pro_id =mysqli_real_escape_string($con,$_POST['pro_id']);
+    $package_name =mysqli_real_escape_string($con,$_POST['package_name']);
+    $package_price =mysqli_real_escape_string($con,$_POST['package_price']);
+    $package_qty =mysqli_real_escape_string($con,$_POST['package_qty']);
+    $note =mysqli_real_escape_string($con,$_POST['note']);
 
     $file_img    = $_FILES['pro_img']['name'];
     $tmp_dir    = $_FILES['pro_img']['tmp_name'];

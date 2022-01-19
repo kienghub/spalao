@@ -1,13 +1,8 @@
 <?php
 include '../../../connection.php';
 $output = array();
-$query  =mysqli_query($con,"SELECT
-	spa_branch.*, 
-	spa_users.user_fname, 
-	spa_users.user_lname, 
-	spa_users.user_gender
-FROM
-	spa_branch LEFT JOIN spa_users ON spa_branch.branch_createdBy=spa_users.user_id");
+$_id=$_GET['id'];
+$query  =mysqli_query($con,"SELECT*FROM spa_product Where pro_cate_id='$_id' ORDER BY _id DESC");
 if (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_array($query)) {
         $output[] = $row;

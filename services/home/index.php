@@ -42,14 +42,14 @@
                                         <div class="goal-card">
                                              <i class="icon-user1"></i>
                                              <h2>2599</h2>
-                                             <h6>Customers</h6>
+                                             <h6>ລູກຄ້າ</h6>
                                         </div>
                                    </div>
                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="goal-card">
                                              <i class="icon-shopping-cart1"></i>
                                              <h2>4005</h2>
-                                             <h6>Orders</h6>
+                                             <h5>ອີເດີ່ເດືອນນີ້</h5>
                                         </div>
                                    </div>
                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -72,41 +72,26 @@
                          <div class="col-xl-7 col-lg-12 col-md-12 col-sm-12 col-12">
                               <div class="card h-310">
                                    <div class="card-header">
-                                        <div class="card-title">Earnings</div>
+                                        <div class="card-title">ແພັກເກັດທີຍັງເຫຼືອ</div>
                                    </div>
                                    <div class="card-body pt-0">
                                         <!-- Row starts -->
                                         <div class="row gutters">
                                              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
                                                   <div class="graph-label-container">
+                                                       <?php 
+                                                  $selectPackage=mysqli_query($con,"SELECT package_name,package_price,package_qty from spa_package");
+                                                  foreach ($selectPackage as $key) {?>
                                                        <div class="graph-label">
                                                             <i class="icon-controller-play"></i>
                                                             <div class="label-detail">
-                                                                 <h5>$45,000</h5>
-                                                                 <p>Report GSK</p>
+                                                                 <h5><?php echo $key['package_name']?></h5>
+                                                                 <p class="float-right">
+                                                                      <?php echo number_format($key['package_price'])?>
+                                                                 </p>
                                                             </div>
                                                        </div>
-                                                       <div class="graph-label">
-                                                            <i class="icon-controller-play"></i>
-                                                            <div class="label-detail">
-                                                                 <h5>$60,000</h5>
-                                                                 <p>Report MRS</p>
-                                                            </div>
-                                                       </div>
-                                                       <div class="graph-label">
-                                                            <i class="icon-controller-play"></i>
-                                                            <div class="label-detail">
-                                                                 <h5>$75,000</h5>
-                                                                 <p>Report AGS</p>
-                                                            </div>
-                                                       </div>
-                                                       <div class="graph-label">
-                                                            <i class="icon-controller-play"></i>
-                                                            <div class="label-detail">
-                                                                 <h5>$90,000</h5>
-                                                                 <p>Profit</p>
-                                                            </div>
-                                                       </div>
+                                                       <?php } ?>
                                                   </div>
                                              </div>
                                              <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">

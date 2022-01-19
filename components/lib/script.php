@@ -25,6 +25,9 @@
         <script src="../../assets/data-table/jquery.dataTables.min.js"></script>
         <script src="../../assets/data-table/dataTables.bootstrap4.min.js"></script>
 
+        <!-- live search -->
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
         <script src="../../assets/js/main.js"></script>
         <script src="../../assets/js/app.js"></script>
         <script src="../../assets/js/onload_file.js"></script>
@@ -32,11 +35,12 @@
         <script src="../../assets/js/printThis.js"></script>
         <script src="../../assets/angularjs.1.4.0/angular.min.js"></script>
         <script src="../../assets/data-table/angular-datatables.min.js"></script>
+        <script src="../../assets/datepicker/js/datepicker.js"></script>
         <script src="../../assets/darkbox/darkbox.min.js"></script>
         <!-- Lobipanel -->
         <script src="../../assets/vendor/lobipanel/js/lobipanel.js"></script>
         <script src="../../assets/vendor/lobipanel/js/lobipanel-custom.js"></script>
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script>
 function layer_close() {
@@ -45,6 +49,13 @@ function layer_close() {
 }
 $(document).ready(function() {
      $('.select2').select2();
+});
+
+$(function() {
+     $('[data-toggle="datepicker"]').datepicker({
+          autoHide: true,
+          zIndex: 2048,
+     });
 });
         </script>
         <!-- Global site tag (gtag.js) - Google Analytics -->

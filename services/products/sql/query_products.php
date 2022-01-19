@@ -8,7 +8,7 @@ $query  =mysqli_query($con,"SELECT
             spa_users.user_fname
         FROM
             spa_product LEFT JOIN spa_category ON spa_product.pro_cate_id=spa_category.cate_id
-            LEFT JOIN spa_users ON spa_product.pro_createdBy=spa_users.user_id WHERE spa_product.pro_status='true' AND spa_product.branch_id='$_BRANCH' ORDER BY spa_product.pro_createdAt DESC");
+            LEFT JOIN spa_users ON spa_product.pro_createdBy=spa_users.user_id WHERE spa_product.pro_status='true' ORDER BY spa_product.pro_createdAt DESC");
 if (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_array($query)) {
         $output[] = $row;

@@ -3,8 +3,8 @@ include ('../../../connection.php');
 $info = json_decode(file_get_contents("php://input"));
 @$x=count($info);
 if ($x > 0) {
-   @$cate_title = $_SUBSTRING($con, $info->cate_title);
-   @$cate_note = $_SUBSTRING($con, $info->cate_note);
+   @$cate_title = $_SETSTRING($con, $info->cate_title);
+   @$cate_note = $_SETSTRING($con, $info->cate_note);
     $btnName = $info->btnName;
     $_select_max_id_for_add_id=$_SQL($con,"SELECT _id FROM spa_category WHERE _id=(SELECT MAX(_id)FROM spa_category)");
         $result=$_ASSOC($_select_max_id_for_add_id);

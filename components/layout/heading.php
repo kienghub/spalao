@@ -15,18 +15,7 @@
         $resultRate =$DB_con->prepare($selectRate);
         $resultRate->execute();
         $_row=$resultRate->fetch();
-        // CHECK STOCK
-        function renderBranch($x){
-        include('../../connection.php');
-        $selectBranch =$_SQL($con,"SELECT * FROM spa_branch WHERE branch_id='$x'");
-        $bres=$_ASSOC($selectBranch);
-        echo $bres['branch_name_l'];
-        mysqli_close($con);
-        }
         ?>
-     <div class="header-items" <?php echo @$_isHide ?>>
-          <strong style="color:#3b4252"> <?php renderBranch($_BRANCH)?> </strong>
-     </div>
      <div class="header-items" <?php echo @$_isHide ?>>
           <a href="../../services/rate/"><strong style="color:#3b4252"> ບາດ(THB):
                     <?php echo @number_format($_row['rate_THB'])?> </strong></a>
