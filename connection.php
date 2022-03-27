@@ -1,6 +1,7 @@
 <?php
 @session_start();
 $con = mysqli_connect('localhost', 'root', '', 'spa');
+$web_connect = mysqli_connect('localhost', 'root', '', 'laopayook_center');
 @mysqli_query($con, "SET NAMES UTF8");
 // if($con){echo "dbx_connect";} else {  echo "no dbx_connect";}
 $DB_HOST = 'localhost';

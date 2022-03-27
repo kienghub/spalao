@@ -3,10 +3,23 @@
 
 <head>
      <!-- Required meta tags -->
-     <?php include('../../Components/lib/lib.php')?>
-     <?php include('../../access/access.php')?>
+     <?php include('../../Components/lib/lib.php') ?>
+     <?php include('../../access/access.php') ?>
 </head>
-<?php _active('.home')?>
+<?php _active('.home') ?>
+<?php
+// get booking not accepted
+$selectOrder = mysqli_query($web_connect, "SELECT * FROM spa_booking WHERE bookingType='SPA' AND status='0' ORDER BY _id");
+$totalOrder = mysqli_num_rows($selectOrder);
+
+// get booking accepted
+$selectOrderAccept = mysqli_query($web_connect, "SELECT * FROM spa_booking WHERE bookingType='SPA' AND status='1' ORDER BY _id");
+$totalOrderAccept = mysqli_num_rows($selectOrderAccept);
+// get customer total
+$callTotal = mysqli_query($con, "SELECT * FROM spa_member");
+$totalCustomer = mysqli_num_rows($callTotal);
+
+?>
 
 <body>
      <!-- Page wrapper start -->
@@ -14,7 +27,7 @@
           <?php include('../../components/layout/side-bar.php') ?>
           <!-- Page content start  -->
           <div class="page-content">
-               <?php include_once('../../components/layout/heading.php')?>
+               <?php include_once('../../components/layout/heading.php') ?>
                <div class="page-header">
                     <ol class="breadcrumb">
                          <li class="breadcrumb-item">ໜ້າຫຼັກ</li>
@@ -35,41 +48,72 @@
 
                     <!-- Row start -->
                     <div class="row gutters">
-                         <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12">
+                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
                               <!-- Row starts -->
                               <div class="row gutters">
                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="goal-card">
                                              <i class="icon-user1"></i>
-                                             <h2>2599</h2>
+                                             <h2><?php echo number_format($totalCustomer) ?></h2>
                                              <h6>ລູກຄ້າ</h6>
                                         </div>
                                    </div>
                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="goal-card">
                                              <i class="icon-shopping-cart1"></i>
-                                             <h2>4005</h2>
+                                             <h2><?php echo number_format($totalOrderAccept) ?></h2>
                                              <h5>ອີເດີ່ເດືອນນີ້</h5>
                                         </div>
                                    </div>
-                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="goal-card">
-                                             <i class="icon-shopping-bag1"></i>
-                                             <h2>3250</h2>
-                                             <h6>Revenue</h6>
+                                   <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="card h-340">
+                                             <div class="card-header">
+                                                  <div class="card-title">ການນັດໝາຍ</div>
+                                             </div>
+                                             <div class="card-body">
+                                                  <div class="customScroll5">
+                                                       <div class="todo-container">
+                                                            <ul class="todo-body">
+                                                                 <?php foreach ($selectOrder as $key) { ?>
+                                                                      <li class="todo-list">
+                                                                           <div class="todo-info">
+                                                                                <span class="dot blue"></span>
+                                                                                <p><?php echo $key['fullName'] ?></p>
+                                                                                <p><?php echo $key['bookingDate'] ?></p>
+                                                                           </div>
+                                                                      </li>
+                                                                 <?php } ?>
+                                                            </ul>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="card h-340">
+                                   <div class="card-header">
+                                        <div class="card-title">ການສັ່ງຈອງໃໝ່</div>
+                                   </div>
+                                   <div class="card-body">
+                                        <div class="customScroll5">
+                                             <ul class="statistics">
+                                                  <?php foreach ($selectOrder as $key) { ?>
+                                                       <li>
+                                                            <span class="stat-icon">
+                                                                 <i class="icon-shopping-cart"></i>
+                                                            </span>
+                                                            <p><?php echo $key['fullName'] ?></p>
+                                                            <hr>
+                                                            <p><?php echo $key['bookingDate'] ?></p>
+                                                       </li>
+                                                  <?php } ?>
+                                             </ul>
                                         </div>
                                    </div>
-                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="goal-card">
-                                             <i class="icon-file-text"></i>
-                                             <h2>2475</h2>
-                                             <h6>Invoices</h6>
-                                        </div>
+                              </div>
                                    </div>
                               </div>
                               <!-- Row ends -->
                          </div>
-                         <div class="col-xl-7 col-lg-12 col-md-12 col-sm-12 col-12">
+                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
                               <div class="card h-310">
                                    <div class="card-header">
                                         <div class="card-title">ແພັກເກັດທີຍັງເຫຼືອ</div>
@@ -79,18 +123,18 @@
                                         <div class="row gutters">
                                              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
                                                   <div class="graph-label-container">
-                                                       <?php 
-                                                  $selectPackage=mysqli_query($con,"SELECT package_name,package_price,package_qty from spa_package");
-                                                  foreach ($selectPackage as $key) {?>
-                                                       <div class="graph-label">
-                                                            <i class="icon-controller-play"></i>
-                                                            <div class="label-detail">
-                                                                 <h5><?php echo $key['package_name']?></h5>
-                                                                 <p class="float-right">
-                                                                      <?php echo number_format($key['package_price'])?>
-                                                                 </p>
+                                                       <?php
+                                                       $selectPackage = mysqli_query($con, "SELECT package_name,package_price,package_qty from spa_package");
+                                                       foreach ($selectPackage as $key) { ?>
+                                                            <div class="graph-label">
+                                                                 <i class="icon-controller-play"></i>
+                                                                 <div class="label-detail">
+                                                                      <h5><?php echo $key['package_name'] ?></h5>
+                                                                      <p class="float-right">
+                                                                           <?php echo number_format($key['package_price']) ?>
+                                                                      </p>
+                                                                 </div>
                                                             </div>
-                                                       </div>
                                                        <?php } ?>
                                                   </div>
                                              </div>
@@ -102,282 +146,6 @@
                                    </div>
                               </div>
                          </div>
-                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="card">
-                                   <div class="card-header">
-                                        <div class="card-title">Sales</div>
-                                   </div>
-                                   <div class="card-body pt-0">
-                                        <div id="compare-sales"></div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="card">
-                                   <div class="card-header">
-                                        <div class="card-title">Income</div>
-                                   </div>
-                                   <div class="card-body pt-0">
-                                        <div id="compare-expenses"></div>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-                    <!-- Row end -->
-
-                    <!-- Row start -->
-                    <div class="row gutters">
-                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="card h-340">
-                                   <div class="card-header">
-                                        <div class="card-title">Todo's</div>
-                                   </div>
-                                   <div class="card-body">
-                                        <div class="customScroll5">
-                                             <div class="todo-container">
-                                                  <ul class="todo-body">
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot blue"></span>
-                                                                 <p>Team Meeting</p>
-                                                                 <p>Thursday at 3:30 PM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot orange"></span>
-                                                                 <p>Make new page</p>
-                                                                 <p>Wednesday at 10:30 AM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list done">
-                                                            <div class="todo-info">
-                                                                 <span class="dot yellow"></span>
-                                                                 <p>Product launch</p>
-                                                                 <p>Sunday at Baur Lac, Zurich</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list done">
-                                                            <div class="todo-info">
-                                                                 <span class="dot green"></span>
-                                                                 <p>Code Review</p>
-                                                                 <p>Friday at 2:00PM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot blue"></span>
-                                                                 <p>Team Meeting</p>
-                                                                 <p>Thursday at 3:30 PM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot orange"></span>
-                                                                 <p>Make new page</p>
-                                                                 <p>Wednesday at 10:30 AM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot yellow"></span>
-                                                                 <p>Product launch</p>
-                                                                 <p>Sunday at Baur Lac, Zurich</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list done">
-                                                            <div class="todo-info">
-                                                                 <span class="dot green"></span>
-                                                                 <p>Code Review</p>
-                                                                 <p>Friday at 2:00PM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot blue"></span>
-                                                                 <p>Team Meeting</p>
-                                                                 <p>Thursday at 3:30 PM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot orange"></span>
-                                                                 <p>Make new page</p>
-                                                                 <p>Wednesday at 10:30 AM</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list">
-                                                            <div class="todo-info">
-                                                                 <span class="dot yellow"></span>
-                                                                 <p>Product launch</p>
-                                                                 <p>Sunday at Baur Lac, Zurich</p>
-                                                            </div>
-                                                       </li>
-                                                       <li class="todo-list done">
-                                                            <div class="todo-info">
-                                                                 <span class="dot green"></span>
-                                                                 <p>Code Review</p>
-                                                                 <p>Friday at 2:00PM</p>
-                                                            </div>
-                                                       </li>
-                                                  </ul>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="card h-340">
-                                   <div class="card-header">
-                                        <div class="card-title">Statistics</div>
-                                   </div>
-                                   <div class="card-body">
-                                        <div class="customScroll5">
-                                             <ul class="statistics">
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-eye1"></i>
-                                                       </span>
-                                                       A new ticket opened.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-thumbs-up1"></i>
-                                                       </span>
-                                                       That's A great idea!
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-star2"></i>
-                                                       </span>
-                                                       Tell us what you think.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-shopping-bag1"></i>
-                                                       </span>
-                                                       A new item sold.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-check-circle"></i>
-                                                       </span>
-                                                       Design approved.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-clipboard"></i>
-                                                       </span>
-                                                       Assigned new task to Zyan.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-eye1"></i>
-                                                       </span>
-                                                       A new ticket opened.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-thumbs-up1"></i>
-                                                       </span>
-                                                       That's A great idea!
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-star2"></i>
-                                                       </span>
-                                                       Tell us what you think.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-shopping-bag1"></i>
-                                                       </span>
-                                                       A new item sold.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-check-circle"></i>
-                                                       </span>
-                                                       Design approved.
-                                                  </li>
-                                                  <li>
-                                                       <span class="stat-icon">
-                                                            <i class="icon-clipboard"></i>
-                                                       </span>
-                                                       Assigned new task to Zyan.
-                                                  </li>
-                                             </ul>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="card h-340">
-                                   <div class="card-header">
-                                        <div class="card-title">Top Pages Visited</div>
-                                   </div>
-                                   <div class="card-body">
-                                        <div class="customScroll5">
-                                             <ul class="recent-links">
-                                                  <li>
-                                                       <a href="#">Bootstrap admin template</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Images resources</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Best admin templates 2020</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Javascript libraries</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Angular widgets</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">UX library</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Bootstrap admin template</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Images resources</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Best admin templates 2020</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Javascript libraries</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Angular widgets</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">UX library</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Bootstrap admin template</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Images resources</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Best admin templates 2020</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Javascript libraries</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">Angular widgets</a>
-                                                  </li>
-                                                  <li>
-                                                       <a href="#">UX library</a>
-                                                  </li>
-                                             </ul>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
                     </div>
                     <!-- Row end -->
                </div>
@@ -386,7 +154,7 @@
           <!-- Page content end -->
      </div>
      <!-- Page wrapper end -->
-     <?php include('../../components/lib/script.php')?>
+     <?php include('../../components/lib/script.php') ?>
 </body>
 
 </html>

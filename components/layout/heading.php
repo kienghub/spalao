@@ -15,7 +15,11 @@
         $resultRate =$DB_con->prepare($selectRate);
         $resultRate->execute();
         $_row=$resultRate->fetch();
-        ?>
+
+     //    get order
+     $selectOrder =mysqli_query($web_connect,"SELECT * FROM spa_booking WHERE bookingType='SPA' AND status='0' ORDER BY _id");
+     $totalOrder =mysqli_num_rows($selectOrder);
+  ?>
      <div class="header-items" <?php echo @$_isHide ?>>
           <a href="../../services/rate/"><strong style="color:#3b4252"> ບາດ(THB):
                     <?php echo @number_format($_row['rate_THB'])?> </strong></a>
@@ -42,49 +46,29 @@
                <li class="dropdown">
                     <a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
                          <i class="icon-bell"></i>
-                         <span class="count-label">8</span>
+                         <span class="count-label"><?php echo $totalOrder ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
                          <div class="dropdown-menu-header">
-                              Notifications (40)
+                              ມີການແຈ້ງເຕືອນ (<?php echo $totalOrder ?>)
                          </div>
                          <ul class="header-notifications">
+                              <?php 
+                              foreach($selectOrder as $row){
+                              ?>
                               <li>
-                                   <a href="#">
+                                   <a href="../../services/booking/">
                                         <div class="user-img away">
-                                             <img src="../../img/user_null.png" alt="">
+                                             <i class="icon-bell fa-2x"></i>
                                         </div>
                                         <div class="details">
-                                             <div class="user-title">Abbott</div>
-                                             <div class="noti-details">Membership has been ended.</div>
-                                             <div class="noti-date">Oct 20, 07:30 pm</div>
+                                             <div class="user-title"><?php echo $row['fullName']?></div>
+                                             <div class="noti-details"><?php echo $row['phoneNumber']?></div>
+                                             <div class="noti-date"><?php echo $row['bookingDate']?></div>
                                         </div>
                                    </a>
                               </li>
-                              <li>
-                                   <a href="#">
-                                        <div class="user-img busy">
-                                             <img src="../../img/user_null.png" alt="">
-                                        </div>
-                                        <div class="details">
-                                             <div class="user-title">Braxten</div>
-                                             <div class="noti-details">Approved new design.</div>
-                                             <div class="noti-date">Oct 10, 12:00 am</div>
-                                        </div>
-                                   </a>
-                              </li>
-                              <li>
-                                   <a href="#">
-                                        <div class="user-img online">
-                                             <img src="../../img/user_null.png" alt="">
-                                        </div>
-                                        <div class="details">
-                                             <div class="user-title">Larkyn</div>
-                                             <div class="noti-details">Check out every table in detail.</div>
-                                             <div class="noti-date">Oct 15, 04:00 pm</div>
-                                        </div>
-                                   </a>
-                              </li>
+                              <?php } ?>
                          </ul>
                     </div>
                </li>

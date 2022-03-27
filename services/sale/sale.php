@@ -54,7 +54,7 @@ pro_qty='<?php echo $res['pro_qty']?>'
                          foreach ($callPackage as $key) {?>
                          <button type="button"
                               onclick="window.location='./sale.php?p_id=<?php echo $key['_id']?>&id=<?php echo $pro_id ?>'"
-                              class="btn btn-<?php if($_GET['p_id']==$key['_id']){echo 'success';} else{echo '';}?>">
+                              class="btn btn-<?php if($_GET['p_id']==$key['_id']){echo 'success';} else{echo 'secondary';}?>">
                               <?php echo $key['package_name'];?>
                          </button>
                          <?php } ?>

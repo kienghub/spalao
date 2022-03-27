@@ -33,6 +33,12 @@
                               <span class="menu-text">ຈັດການສະມາຊິກ</span>
                          </a>
                     </li>
+                    <li class="booking">
+                         <a href="../../services/booking/">
+                              <i class="icon-chat"></i>
+                              <span class="menu-text">ການຈອງອໍເດີ່</span>
+                         </a>
+                    </li>
                     <li class="sidebar-dropdown">
                          <a href="#" class="">
                               <i class="icon-filter_frames"></i>
@@ -120,6 +126,12 @@
                                    </li>
                               </ul>
                          </div>
+                    </li>
+                    <li class="comment">
+                         <a href="../../services/comment/">
+                              <i class="icon-comment"></i>
+                              <span class="menu-text">ຄວາມຄິດເຫັນ</span>
+                         </a>
                     </li>
                </ul>
           </div>
