@@ -122,6 +122,7 @@
                                                                       </strong>
                                                                       <hr>
                                                                       <button type="button"
+                                                                           <?php if($result['total']==0){echo 'disabled';}?>
                                                                            class="btn btn-primary btn-block mb-0"
                                                                            ng-click="addToCart('ຈັດການ ການສັ່ງຊື້','./sale.php?id=<?php echo $key['pro_id']?>',100,100)">
                                                                            <i class="icon-shopping-cart1"></i>

@@ -24,7 +24,7 @@
 
                     <ul class="app-actions">
                          <button type="button" class="btn btn-success"
-                              onclick="addPackage('ເພີ່ມຂໍ້ມູນແພັກເກັດ','./add_package.php',50,98)">
+                              onclick="addPackage('ເພີ່ມຂໍ້ມູນແພັກເກັດ','./add_package.php',50,90)">
                               <i class="icon-plus-circle"></i>
                               ສ້າງແພັກເກັດ
                          </button>

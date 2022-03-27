@@ -9,7 +9,7 @@
 
 <body ng-app="app" ng-controller="package" ng-init="_callPackage();_callProduct();pro_title=''">
      <div class="row">
-          <div class="col-md-3 col-12">
+          <div class="col-md-12">
                <div class="blog p-3">
                     <div class="form-group">
                          <label for="">ປະເພດຄອສ໌ <?php isVal()?> </label>

@@ -19,12 +19,12 @@ $select_max_id=$_SQL($con, "SELECT _id FROM spa_member WHERE _id=(SELECT MAX(_id
     }
 
     if ($btnName == "ບັນທຶກ") {
-    $selectMember = $_SQL($con, "SELECT * FROM spa_member WHERE mb_fullName='$mb_fullName' AND mb_phoneNumber='$mb_phoneNumber' AND branch_id='$_BRANCH'");
+    $selectMember = $_SQL($con, "SELECT * FROM spa_member WHERE mb_fullName='$mb_fullName' AND mb_phoneNumber='$mb_phoneNumber'");
     $res = $_COUNT($selectMember);
     if ($res > 0) {
         echo 'DUPLICATED'; 
     } else {
-        $data = "'$id','$_AUTO_ID','$mb_fullName','$mb_phoneNumber','$mb_address','$mb_note','$_TIMESTAMP','$_USER_ID','$_BRANCH'";
+        $data = "'$id','$_AUTO_ID','$mb_fullName','$mb_phoneNumber','$mb_address','$mb_note','$_TIMESTAMP','$_USER_ID'";
         $_createMember = $_SQL($con, "INSERT INTO spa_member VALUE($data)");
         if ($_createMember) {
             echo 200;
