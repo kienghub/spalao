@@ -1,7 +1,7 @@
 var app = angular.module("app", ["datatables"]);
 app.controller("package", function ($scope, $http) {
   $scope.btnName = "ບັນທຶກ";
-  $scope.form_title = "ເພີ່ມແພັກເກັດ";
+  $scope.form_title = "ເພີ່ມແພັກເກັຈ";
   // notification
   function _Success() {
     Notiflix.Notify.Success("ການດຳເນີນງານສຳເລັດ");
@@ -38,16 +38,16 @@ app.controller("package", function ($scope, $http) {
       _Warning("ກະລຸນາເລືອກລາຍການຄອສ໌ກ່ອນ");
     } else if (!$scope.package_name) {
       $('[ng-model="package_name"]').focus();
-      _Warning("ກະລຸນາປ້ອນຊື່ແພັກເກັດກ່ອນ");
+      _Warning("ກະລຸນາປ້ອນຊື່ແພັກເກັຈກ່ອນ");
     } else if (!$scope.package_type) {
       $('[ng-model="package_type"]').focus();
-      _Warning("ກະລຸນາເລືອກປະເພດແພັກເກັດກ່ອນ");
+      _Warning("ກະລຸນາເລືອກປະເພດແພັກເກັຈກ່ອນ");
     } else if (!$scope.package_price) {
       $('[ng-model="package_price"]').focus();
-      _Warning("ກະລຸນາປ້ອນລາຄາແພັກເກັດກ່ອນ");
+      _Warning("ກະລຸນາປ້ອນລາຄາແພັກເກັຈກ່ອນ");
     } else if (!$scope.package_qty) {
       $('[ng-model="package_qty"]').focus();
-      _Warning("ກະລຸນາປ້ອນຈຳນວນແພັກເກັດກ່ອນ");
+      _Warning("ກະລຸນາປ້ອນຈຳນວນແພັກເກັຈກ່ອນ");
     } else {
       $http
         .post("sql/create_package.php", {
@@ -94,7 +94,7 @@ app.controller("package", function ($scope, $http) {
     $scope.package_qty = x.package_qty;
     $scope.note = x.note;
     $scope.btnName = "ແກ້ໄຂ";
-    $scope.form_title = "ແກ້ໄຂແພັກເກັດ";
+    $scope.form_title = "ແກ້ໄຂແພັກເກັຈ";
   };
 
   // DELETE DATA

@@ -1,7 +1,7 @@
 var app = angular.module("app", ["datatables"]);
 app.controller("package", function ($scope, $http) {
   $scope.btnName = "ບັນທຶກ";
-  $scope.form_title = "ເພີ່ມແພັກເກັດ";
+  $scope.form_title = "ເພີ່ມແພັກເກັຈ";
   // notification
   function _Success() {
     Notiflix.Notify.Success("ການດຳເນີນງານສຳເລັດ");
@@ -36,10 +36,10 @@ app.controller("package", function ($scope, $http) {
   $scope._onSave = function () {
     if (!$scope.package_id_fk) {
       $('[ng-model="package_id_fk"]').focus();
-      _Warning("ກະລຸນາເລືອກແພັກເກັດກ່ອນ");
+      _Warning("ກະລຸນາເລືອກແພັກເກັຈກ່ອນ");
     } else if (!$scope.add_package_qty) {
       $('[ng-model="add_package_qty"]').focus();
-      _Warning("ກະລຸນາປ້ອນຈຳນວນແພັກເກັດກ່ອນ");
+      _Warning("ກະລຸນາປ້ອນຈຳນວນແພັກເກັຈກ່ອນ");
     } else {
       $http
         .post("sql/create_package.php", {
@@ -80,7 +80,7 @@ app.controller("package", function ($scope, $http) {
 
     $scope.old_qty = x.add_package_qty;
     $scope.btnName = "ແກ້ໄຂ";
-    $scope.form_title = "ແກ້ໄຂແພັກເກັດ";
+    $scope.form_title = "ແກ້ໄຂແພັກເກັຈ";
   };
 
   // DELETE DATA

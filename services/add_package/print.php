@@ -71,7 +71,7 @@
                     <th colspan="2">
                          <center>
                               <h3 style="color:black!important">
-                                   ລາຍງານການເພິ່ມແພັກເກັດ
+                                   ລາຍງານການເພິ່ມແພັກເກັຈ
                               </h3>
                          </center>
                     </th>
@@ -99,7 +99,7 @@
                <thead>
                     <tr>
                          <th style="text-align:center" class="thead">#</th>
-                         <th style="text-align:center" class="thead">ຊື່ແພັກເກັດ</th>
+                         <th style="text-align:center" class="thead">ຊື່ແພັກເກັຈ</th>
                          <th style="text-align:center" class="thead">ລາຄາ</th>
                          <th style="text-align:center" class="thead">ຈຳນວນ</th>
                          <th style="text-align:center" class="thead">ໝາຍເຫດ</th>

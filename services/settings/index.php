@@ -71,7 +71,7 @@
                                              <i class="icon-layers2"></i>
                                         </div>
                                         <div class="sale-num">
-                                             <h4>ຈັດການແພັກເກັດ</h4>
+                                             <h4>ຈັດການແພັກເກັຈ</h4>
                                         </div>
                                    </div>
                               </a>

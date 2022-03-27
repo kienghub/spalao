@@ -116,7 +116,7 @@ $totalCustomer = mysqli_num_rows($callTotal);
                          <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
                               <div class="card h-310">
                                    <div class="card-header">
-                                        <div class="card-title">ແພັກເກັດທີຍັງເຫຼືອ</div>
+                                        <div class="card-title">ແພັກເກັຈທີຍັງເຫຼືອ</div>
                                    </div>
                                    <div class="card-body pt-0">
                                         <!-- Row starts -->

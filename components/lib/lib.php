@@ -75,7 +75,7 @@ td button {
 .card,
 .form-control,
 .ng-pristine {
-     border-radius: 0px !important;
+     border-radius: 2px !important;
 }
 </style>
 <?php

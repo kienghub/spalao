@@ -39,7 +39,7 @@
                               <span class="menu-text">ການຈອງອໍເດີ່</span>
                          </a>
                     </li>
-                    <li class="sidebar-dropdown">
+                    <!-- <li class="sidebar-dropdown">
                          <a href="#" class="">
                               <i class="icon-filter_frames"></i>
                               <span class="menu-text">ຈັດການຕົວຢາ</span>
@@ -57,22 +57,22 @@
                                    </li>
                               </ul>
                          </div>
-                    </li>
+                    </li> -->
                     <li class="sidebar-dropdown">
                          <a href="#" class="package">
                               <i class="icon-package"></i>
-                              <span class="menu-text">ຈັດການແພັກເກັດ</span>
+                              <span class="menu-text">ຈັດການແພັກເກັຈ</span>
                          </a>
                          <div class="sidebar-submenu">
                               <ul>
-                                   <li>
-                                        <a href="../../services/package/">ສ້າງແພັກເກັດ</a>
+                                   <li id="createPackage">
+                                        <a href="../../services/package/">ສ້າງແພັກເກັຈ</a>
                                    </li>
-                                   <li>
-                                        <a href="../../services/add_package/">ເພີ່ມແພັກເກັດ</a>
+                                   <li id="addPackage">
+                                        <a href="../../services/add_package/">ເພີ່ມແພັກເກັຈ</a>
                                    </li>
-                                   <li>
-                                        <a href="../../services/stock_package/">ລາຍງານແພັກເກັດ</a>
+                                   <li id="reportPackage">
+                                        <a href="../../services/stock_package/">ລາຍງານແພັກເກັຈ</a>
                                    </li>
                               </ul>
                          </div>

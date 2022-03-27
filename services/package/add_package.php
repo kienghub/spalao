@@ -34,9 +34,9 @@
                          </select>
                     </div>
                     <div class="form-group">
-                         <label for="">ຊື່ແພັກເກັດ <?php isVal()?></label>
+                         <label for="">ຊື່ແພັກເກັຈ <?php isVal()?></label>
                          <input type="text" class="form-control" ng-model="package_name"
-                              placeholder="ກະລຸນາປ້ອນຊື່ແພັກເກັດ">
+                              placeholder="ກະລຸນາປ້ອນຊື່ແພັກເກັຈ">
                     </div>
                     <div class="form-group">
                          <label for="">ປະເພດ <?php isVal()?></label>
@@ -47,7 +47,7 @@
                          </select>
                     </div>
                     <div class="form-group">
-                         <label for="">ລາຄາແພັກເກັດ <?php isVal()?></label>
+                         <label for="">ລາຄາແພັກເກັຈ <?php isVal()?></label>
                          <input type="text" class="form-control text-right" ng-model="package_price" id="package_price"
                               placeholder="00">
                     </div>

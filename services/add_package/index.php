@@ -20,7 +20,7 @@
                <div class="page-header">
                     <ol class="breadcrumb">
                          <li class="breadcrumb-item" onclick="window.location='../settings/'">ຈັດການຂໍ້ມູນ</li>
-                         <li class="breadcrumb-item active">ແພັກເກັດ</li>
+                         <li class="breadcrumb-item active">ແພັກເກັຈ</li>
                     </ol>
 
                     <ul class="app-actions">
@@ -72,7 +72,7 @@
                          </div>
                          <div class="col-md-9 col-12">
                               <div class="blog p-3">
-                                   <h4><i class="fa fa-list"></i> ລາຍການແພັກເກັດ</h4>
+                                   <h4><i class="fa fa-list"></i> ລາຍການແພັກເກັຈ</h4>
                                    <hr>
                                    <div class="row mt-3 mb-3">
                                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -102,7 +102,7 @@
                                              <thead>
                                                   <tr>
                                                        <th>#</th>
-                                                       <th>ຊື່ແພັກເກັດ</th>
+                                                       <th>ຊື່ແພັກເກັຈ</th>
                                                        <th>ລາຄາ</th>
                                                        <th>ຈຳນວນ</th>
                                                        <th>ໝາຍເຫດ</th>
@@ -153,6 +153,7 @@
      <?php include('../../components/lib/script.php')?>
      <script src="app.js"></script>
      <script>
+     $('#addPackage').addClass('active');
      $("#add_package_qty").on("keyup click change paste input", function(event) {
           $(this).val(function(index, value) {
                if (value != "") {
